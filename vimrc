@@ -196,6 +196,7 @@ set diffopt+=vertical
 map <C-n> :NERDTreeToggle<CR>
 "command to add doc blocks
 autocmd FileType php noremap <TAB> <ESC>:call pdv#DocumentWithSnip()<CR>
+autocmd FileType javascript noremap <TAB> <ESC>:call pdv#DocumentWithSnip()<CR>
 "Split lines at cursor with K
 noremap K i<CR><ESC>
 "Only lint js on save
