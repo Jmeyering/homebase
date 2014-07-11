@@ -50,6 +50,7 @@ Plugin 'othree/html5.vim'
 
 "syntax error checking
 Plugin 'scrooloose/syntastic'
+Plugin 'wookiehangover/jshint.vim'
 
 "git integration
 Plugin 'tpope/vim-fugitive'
@@ -197,6 +198,8 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd FileType php noremap <TAB> <ESC>:call pdv#DocumentWithSnip()<CR>
 "Split lines at cursor with K
 noremap K i<CR><ESC>
+"Only lint js on save
+let JSHintUpdateWriteOnly=1
 " -------------------------------------------------
 "  reading and writing files
 " -------------------------------------------------
