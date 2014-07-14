@@ -107,6 +107,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+PATH=$PATH:"~/"
 source ~/todo_completion
 complete -F _todo t
 export TODOTXT_DEFAULT_ACTION=ls
