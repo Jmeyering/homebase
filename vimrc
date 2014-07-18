@@ -47,6 +47,7 @@ Plugin 'gregsexton/matchtag'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rodjek/vim-puppet'
 Plugin 'othree/html5.vim'
+Plugin 'joshtronic/php.vim'
 
 "syntax error checking
 Plugin 'scrooloose/syntastic'
