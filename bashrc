@@ -107,6 +107,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+export EDITOR=vim
+
 PATH=$PATH:"~/"
 source ~/todo_completion
 complete -F _todo t
