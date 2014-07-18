@@ -1,0 +1,207 @@
+#!/usr/bin/env php
+<?php
+
+class file
+{
+    public $fileName;
+    public $todoDir;
+
+    public function __construct($fileName)
+    {
+        $this->fileName = $fileName;
+        $this->todoDir = getenv('TODO_DIR') . '/';
+        if(empty($this->todoDir)) {
+            return "Default todo Directory not set";
+            exit;
+        }
+        return $fileName;
+    }
+
+    /**
+     * returns the base name of the new file.
+     * @param  string $extension Optionally set your own extension...not sure why you would want to.
+     * @return string
+     */
+    public function getFileBaseName($extension = ".txt")
+    {
+        return basename($this->fileName,".txt");
+    }
+
+    /**
+     * Saves file to path
+     * @return True on success
+     * @return  Exception on Fail
+     */
+    public function save()
+    {
+        $savePath = $this->getSavePath();
+        if($result = fopen($savePath,"w+")) {
+            return $result;
+        } else {
+            throw new Exception("Unable to Save File", 1);
+        }
+    }
+    /**
+     * Check for file exists
+     * @return True on success
+     * @return  Exception on Fail
+     */
+    public function alreadyExists()
+    {
+        if(file_exists($this->getSavePath())) {
+            return true;
+        }
+        return false;
+    }
+    /**
+     * Deletes File
+     * @return boolean
+     */
+    public function delete()
+    {
+        $path = $this->getSavePath();
+        if(unlink($path)) {
+            return true;
+        }
+        return false;
+    }
+    /**
+     * Checks for valid filename supplied
+     * @return boolean
+     */
+    public function isValidFilename()
+    {
+        $fileName = $this->fileName;
+        if(substr($fileName, 0,1) == '-') {
+            return false;
+        }
+        return true;
+    }
+    /**
+     * Writes a new line to selected file
+     * @param  string $todo
+     * @return boolean if save occured
+     * @throws  exception If Save Failed
+     */
+    public function writeToFile($todo)
+    {
+        //clear whitespace at end of file.
+        $todo = trim($todo);
+        $savePath = $this->getSavePath();
+
+        $file = fopen($savePath, "a+");
+        if(fwrite($file, $todo."\n"))
+            fclose($file);
+        else {
+            throw new Exception("Unable to save file");
+        }
+    }
+    /**
+     * Adds .txt extension to base file name if not supplied
+     * @param string $extension
+     */
+    private function addExtension($extension = ".txt")
+    {
+        $fileName = $this->fileName;
+        if(substr($fileName, -4) !== $extension) {
+            $fileName .= $extension;
+            $this->fileName = $fileName;
+        }
+        return $fileName;
+    }
+    /**
+     * Create the path that we need to save to.
+     * @return string
+     */
+    private function getSavePath()
+    {
+        $todoDir = $this->todoDir;
+        $fileExtendedName = $this->addExtension();
+        return $todoDir . $fileExtendedName;
+    }
+}
+
+//Set the file object or display help menu
+if ($argv[1] == "usage") {
+    //todo.sh usage variable to dispalay on their help menu. Not working right now.
+    echo "  Make List:";
+    echo "    make [file name] [-h for more help]";
+    echo "      creates a new txt file in your default TODO_DIR";
+    exit;
+} elseif (isset($argv[2]) && $argv[2] == "-h") {
+    //Display help menu
+    echo "\n\n";
+    echo "Make Syntax:\n";
+    echo "    todo.sh make [file name] [-d optional]\n";
+    echo "    The name specified in [file name] will be the name of the file created in your TODO_DIR.
+        Make will automatically append .txt to the end of your file name if you don't want to provide it.\n";
+    echo "    the -d flag will delete the named file from the TODO_DIR\n\n";
+    exit;
+} elseif (isset($argv[2])) {
+    //Set File object
+    $file = new file($argv[2]);
+} else {
+    //No parameters given.
+    echo "\nYou must specify a file name\n\n";
+    exit;
+}
+
+//Check for third argument Process new file create if no changes.
+if(empty($argv[3])) {
+    //Only two arguments proceed with creating new file.
+    if(!$file->alreadyExists()) {
+        if($file->isValidFilename()) {
+            try {
+                $file->save();
+            } catch (Exception $e) {
+                echo "\n";
+                echo $e->getMessage();
+                echo "\n\n";
+                exit;
+            }
+            echo "\n File $file->fileName created in $file->todoDir\n\n";
+        }
+        else {
+            echo "\nInvalid File Name\n\n";
+        }
+    } else {
+        echo "\nFile already Exists\n\n";
+    }
+} else {
+    //Delete
+    if($argv[3] == '-d') {
+        if ($file->alreadyExists()) {
+            if($file->delete()) {
+                echo "\n File $file->fileName deleted from $file->todoDir\n\n";
+            } else {
+                echo "\nDelete Failed\n\n";
+            }
+        } else {
+            echo "\nFile does not exist\n\n";
+        }
+    } elseif ($argv[3] == 'a' || $argv[3] == 'add' || $argv[3] == 'addto') {
+        //Write to new file.
+        if($file->alreadyExists()) {
+            $i = 1;
+            $precursors = 4;
+            $todo = "";
+            foreach ($argv as $argument) {
+                if ($i > $precursors) {
+                    $todo .= $argument . " ";
+                }
+                $i++;
+            }
+            try {
+                $file->writeToFile($todo);
+            } catch (Exception $e) {
+                echo "\n";
+                echo $e->getMessage();
+                echo "\n\n";
+                exit;
+            }
+            echo "\nAdded - $todo \n\n";
+        } else {
+            echo "\nFile Does not Exists. Nothing Added\n\n";
+        }
+    }
+}
