@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 
-dotfiles="bashrc bash_aliases vimrc tmux.conf todo_completion"    # list of filesto symlink in homedir
+dotfiles="bashrc bash_aliases vimrc tmux.conf todo_completion bash_profile"    # list of filesto symlink in homedir
 regfiles="todo_completion todo.sh todo.cfg"    # list of filesto symlink in homedir
 dotdirs="vim todo.actions.d"    # list of folders to symlink in homedir
 

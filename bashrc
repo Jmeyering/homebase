@@ -1,7 +1,6 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-export TERM=xterm-256color
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -107,9 +106,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export EDITOR=vim
-
 PATH=$PATH:"~/"
 source ~/todo_completion
 complete -F _todo t
-export TODOTXT_DEFAULT_ACTION=ls
