@@ -3,3 +3,5 @@ export EDITOR=vim
 export TODOTXT_DEFAULT_ACTION=ls
 
 export GOPATH=$HOME/go
+
+export PATH=$PATH:$GOPATH/bin
