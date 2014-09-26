@@ -42,12 +42,14 @@ Plugin 'scrooloose/nerdtree'
 
 "syntax highlight and colors
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'xsbeats/vim-blade'
 Plugin 'lunaru/vim-twig'
 Plugin 'gregsexton/matchtag'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rodjek/vim-puppet'
 Plugin 'othree/html5.vim'
 Plugin 'joshtronic/php.vim'
+Plugin 'mustache/vim-mustache-handlebars'
 
 "syntax error checking
 Plugin 'scrooloose/syntastic'
