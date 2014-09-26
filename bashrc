@@ -107,5 +107,14 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 PATH=$PATH:"~/"
-source ~/todo_completion
-complete -F _todo t
+
+#todo.txt completion file
+if [ -f ~/todo_completion ]; then
+    . ~/todo_completion
+    complete -F _todo t
+fi
+
+#tmux git bar
+if [ -f ~/.tmux_git.sh ]; then
+    . ~/.tmux_git.sh
+fi
