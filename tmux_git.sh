@@ -7,10 +7,10 @@
 # Location of the status on tmux bar: left or right
 TMUX_STATUS_LOCATION='right'
 
-# Location of the status on tmux bar: left or right
+# Color of a clean repository
 TMUX_STATUS_COLOR='yellow'
 
-# Location of the status on tmux bar: left or right
+# Color of a dirty repository
 TMUX_DIRTY_COLOR='red'
 
 # Status for where you are out of a repo
