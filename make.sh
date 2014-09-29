@@ -6,7 +6,8 @@
 
 ########## Variables
 
-dir=~/dotfiles                    # dotfiles directory
+homedir=/home/vagrant
+dir=$homedir/dotfiles                    # dotfiles directory
 
 dotfiles="bashrc bash_aliases vimrc tmux.conf todo_completion bash_profile tmux_git.sh"    # list of filesto symlink in homedir
 regfiles="todo_completion todo.sh todo.cfg"    # list of filesto symlink in homedir
@@ -28,4 +29,10 @@ for folder in $dotdirs; do
     rm -rf ~/.$folder 2>/dev/null
     ln -s $dir/$folder ~/.$folder 2>/dev/null
 done
+
+#Install Vundle if not already installed and install plugins
+if [ -d $homedir/.vim ] && ! [ -d $homedir/.vim/bundle/Vundle.vim ]; then
+    git clone https://github.com/gmarik/Vundle.vim.git $homedir/.vim/bundle/Vundle.vim
+    vim +PluginInstall +qall >/dev/null
+fi
 echo "done"
