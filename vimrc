@@ -50,6 +50,7 @@ Plugin 'rodjek/vim-puppet'
 Plugin 'othree/html5.vim'
 Plugin 'joshtronic/php.vim'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'fatih/vim-go'
 
 "syntax error checking
 Plugin 'scrooloose/syntastic'
