@@ -20,9 +20,11 @@ cd $dir
 
 #Create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $dotfiles; do
+    rm ~/.$file 2>/dev/null
     ln -s $dir/$file ~/.$file 2>/dev/null
 done
 for file in $regfiles; do
+    rm ~/$file 2>/dev/null
     ln -s $dir/$file ~/$file 2>/dev/null
 done
 for folder in $dotdirs; do

@@ -118,3 +118,6 @@ fi
 if [ -f ~/.tmux_git.sh ]; then
     . ~/.tmux_git.sh
 fi
+
+#No need to use <C-s> and <C-q> top stop and start stty
+stty -ixon
