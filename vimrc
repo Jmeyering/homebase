@@ -28,6 +28,7 @@ Plugin 'tobyS/pdv'
 Plugin 'tobyS/vmustache'
 Plugin 'SirVer/ultisnips'
 Plugin 'joonty/vdebug'
+Plugin 'docteurklein/php-getter-setter.vim'
 
 "text manipulation
 Plugin 'Jmeyering/SwapLines'
@@ -63,12 +64,6 @@ Plugin 'mattn/gist-vim'
 
 call vundle#end()
 filetype on
-
-" -------------------------------------------------
-" pathogen
-" -------------------------------------------------
-call pathogen#helptags() "pathogen
-execute pathogen#infect()
 
 " -------------------------------------------------
 "  important
@@ -233,6 +228,9 @@ set hidden
 " -------------------------------------------------
 "Detect Syntax settings
 filetype plugin indent on
+
+"Auto import go paths
+let g:go_fmt_command = "goimports"
 
 " -------------------------------------------------
 "  multi-byte characters
