@@ -19,3 +19,8 @@ Async
 app
 dev
 endif
+Blendbox
+blendbox
+VirtualBox
+github
+Vagrantfile

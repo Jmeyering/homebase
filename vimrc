@@ -28,6 +28,7 @@ Plugin 'tobyS/pdv'
 Plugin 'tobyS/vmustache'
 Plugin 'SirVer/ultisnips'
 Plugin 'joonty/vdebug'
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'docteurklein/php-getter-setter.vim'
 
 "text manipulation
@@ -40,6 +41,7 @@ Plugin 'godlygeek/tabular'
 "search
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
 
 "syntax highlight and colors
 Plugin 'altercation/vim-colors-solarized'
@@ -197,6 +199,7 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd FileType php noremap <TAB> <ESC>:call pdv#DocumentWithSnip()<CR>
 "Split lines at cursor with K
 noremap K i<CR><ESC>
+
 "Only lint js on save
 let JSHintUpdateWriteOnly=1
 " -------------------------------------------------
@@ -231,6 +234,9 @@ filetype plugin indent on
 
 "Auto import go paths
 let g:go_fmt_command = "goimports"
+
+"map <leader>(gd) to godocumentation
+au FileType go nmap <Leader>gd <Plug>(go-doc)
 
 " -------------------------------------------------
 "  multi-byte characters
