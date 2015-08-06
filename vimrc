@@ -32,7 +32,6 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'docteurklein/php-getter-setter.vim'
 
 "text manipulation
-Plugin 'Jmeyering/SwapLines'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
