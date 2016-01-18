@@ -51,6 +51,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'rodjek/vim-puppet'
 Plugin 'othree/html5.vim'
 Plugin 'StanAngeloff/php.vim'
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'fatih/vim-go'
 
@@ -124,8 +125,9 @@ let g:phpcs_std_list="PSR2"
 
 "Set the checkers for Syntastic
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-"the coding standard for Syntastic
 let g:syntastic_phpcs_conf="--standard=PSR2"
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " -------------------------------------------------
 "  multiple windows
