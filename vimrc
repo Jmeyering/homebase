@@ -118,7 +118,11 @@ catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 
 "show tabs and trailing spaces
-set list listchars=tab:»·,trail:þ
+set list listchars=tab:»·,trail:·
+
+augroup golang
+    autocmd BufRead *.go set list listchars=tab:\ \ ,trail:·
+augroup END
 
 "PHPCs settings for :Phpcs command
 let g:phpcs_std_list="PSR2"
@@ -126,7 +130,6 @@ let g:phpcs_std_list="PSR2"
 "Set the checkers for Syntastic
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 let g:syntastic_phpcs_conf="--standard=PSR2"
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " -------------------------------------------------
