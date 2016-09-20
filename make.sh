@@ -6,7 +6,7 @@
 
 ########## Variables
 
-homedir=/home/vagrant
+homedir=~/
 dir=$homedir/dotfiles                    # dotfiles directory
 
 dotfiles="bashrc bash_aliases vimrc tmux.conf todo_completion bash_profile tmux_git.sh"    # list of filesto symlink in homedir
