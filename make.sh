@@ -34,7 +34,7 @@ done
 
 #Install Vundle if not already installed and install plugins
 if [ -d $homedir/.vim ] && ! [ -d $homedir/.vim/bundle/Vundle.vim ]; then
-    git clone https://github.com/gmarik/Vundle.vim.git $homedir/.vim/bundle/Vundle.vim
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall >/dev/null
 fi
 echo "done"
