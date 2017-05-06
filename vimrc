@@ -18,7 +18,7 @@ filetype off "required for Vundle. we turn back on after
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 "'sensible' defaults
 Plugin 'tpope/vim-sensible'
@@ -30,6 +30,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'joonty/vdebug'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'docteurklein/php-getter-setter.vim'
+Plugin 'editorconfig/editorconfig-vim'
 
 "text manipulation
 Plugin 'tomtom/tcomment_vim'
@@ -38,12 +39,15 @@ Plugin 'mattn/emmet-vim'
 Plugin 'godlygeek/tabular'
 
 "search
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 
 "syntax highlight and colors
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'mxw/vim-jsx'
 Plugin 'xsbeats/vim-blade'
 Plugin 'lunaru/vim-twig'
 Plugin 'gregsexton/matchtag'
@@ -52,12 +56,13 @@ Plugin 'rodjek/vim-puppet'
 Plugin 'othree/html5.vim'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'jelera/vim-javascript-syntax'
-Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'isRuslan/vim-es6'
 Plugin 'fatih/vim-go'
+Plugin 'leafgarland/typescript-vim'
 
 "syntax error checking
 Plugin 'scrooloose/syntastic'
-Plugin 'wookiehangover/jshint.vim'
+Plugin 'gcorne/vim-sass-lint'
 
 "git integration
 Plugin 'tpope/vim-fugitive'
@@ -78,15 +83,16 @@ set nocompatible
 " -------------------------------------------------
 "ctrlp search mode
 let g:ctrlp_working_path_mode = 'r'
-"ctrlp shortcut
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+
 "Ctrlp ignore folders
-set wildignore+=*/cache/*,*/node_modules/*,*/vendor/*
+set wildignore+=*/cache/*,*/node_modules/*,*/vendor/*,*/craft/*
+
 "Ignore case in search mode
 set ignorecase
+
 "Do not ignore uppercase
 set smartcase
+
 "highlight search resules
 set hlsearch
 
@@ -128,6 +134,11 @@ augroup END
 let g:phpcs_std_list="PSR2"
 
 "Set the checkers for Syntastic
+let g:syntastic_sass_checkers=["sasslint"]
+let g:syntastic_scss_checkers=["sasslint"]
+let g:syntastic_scss_sasslint_exe = '$(npm bin)/sasslint'
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 let g:syntastic_phpcs_conf="--standard=PSR2"
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
@@ -204,8 +215,6 @@ autocmd FileType php noremap <TAB> <ESC>:call pdv#DocumentWithSnip()<CR>
 "Split lines at cursor with K
 noremap K i<CR><ESC>
 
-"Only lint js on save
-let JSHintUpdateWriteOnly=1
 " -------------------------------------------------
 "  reading and writing files
 " -------------------------------------------------
