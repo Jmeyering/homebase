@@ -44,21 +44,18 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 
 "syntax highlight and colors
+Plugin 'fleischie/vim-styled-components'
 Plugin 'hail2u/vim-css3-syntax'
-Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'mxw/vim-jsx'
-Plugin 'xsbeats/vim-blade'
+Plugin 'pangloss/vim-javascript'
+Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'lunaru/vim-twig'
 Plugin 'gregsexton/matchtag'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rodjek/vim-puppet'
 Plugin 'othree/html5.vim'
 Plugin 'StanAngeloff/php.vim'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'isRuslan/vim-es6'
 Plugin 'fatih/vim-go'
-Plugin 'leafgarland/typescript-vim'
 
 "syntax error checking
 Plugin 'scrooloose/syntastic'
@@ -134,9 +131,6 @@ augroup END
 let g:phpcs_std_list="PSR2"
 
 "Set the checkers for Syntastic
-let g:syntastic_sass_checkers=["sasslint"]
-let g:syntastic_scss_checkers=["sasslint"]
-let g:syntastic_scss_sasslint_exe = '$(npm bin)/sasslint'
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
@@ -184,7 +178,6 @@ endif
 " -------------------------------------------------
 "  tabs and indenting
 " -------------------------------------------------
-"Dur
 set tabstop=4
 "Spaces not tabs
 set shiftwidth=4
@@ -212,8 +205,6 @@ set diffopt+=vertical
 map <C-n> :NERDTreeToggle<CR>
 "command to add doc blocks
 autocmd FileType php noremap <TAB> <ESC>:call pdv#DocumentWithSnip()<CR>
-"Split lines at cursor with K
-noremap K i<CR><ESC>
 
 " -------------------------------------------------
 "  reading and writing files
@@ -277,3 +268,10 @@ if has('gui_running')
     "turn off toolbars and other nonsense
     set guioptions=
 endif
+nmap <leader>sp :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
