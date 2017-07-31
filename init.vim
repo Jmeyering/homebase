@@ -1,73 +1,44 @@
-" -------------------------------------------------
-" Encoding issues with windows machines. Require utf8
-" -------------------------------------------------
-if has("multi_byte")
-    if &termencoding == ""
-        let &termencoding = &encoding
-    endif
-    set encoding=utf-8
-    setglobal fileencoding=utf-8
-    "setglobal bomb
-    set fileencodings=ucs-bom,utf-8,latin1
-endif
+call plug#begin('~/.vim/plugged')
 
-" -------------------------------------------------
-" vundle
-" -------------------------------------------------
-filetype off "required for Vundle. we turn back on after
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 "'sensible' defaults
-Plugin 'tpope/vim-sensible'
+Plug 'tpope/vim-sensible'
 
 "code helpers
-Plugin 'tobyS/pdv'
-Plugin 'tobyS/vmustache'
-Plugin 'SirVer/ultisnips'
-Plugin 'joonty/vdebug'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'docteurklein/php-getter-setter.vim'
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'w0rp/ale'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 "text manipulation
-Plugin 'tomtom/tcomment_vim'
-Plugin 'tpope/vim-surround'
-Plugin 'mattn/emmet-vim'
-Plugin 'godlygeek/tabular'
+Plug 'tpope/vim-surround'
+Plug 'mattn/emmet-vim'
+Plug 'godlygeek/tabular'
 
 "search
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'
 
 "syntax highlight and colors
-Plugin 'fleischie/vim-styled-components'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'pangloss/vim-javascript'
-Plugin 'maxmellon/vim-jsx-pretty'
-Plugin 'lunaru/vim-twig'
-Plugin 'gregsexton/matchtag'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'rodjek/vim-puppet'
-Plugin 'othree/html5.vim'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'fatih/vim-go'
+Plug 'fleischie/vim-styled-components'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'altercation/vim-colors-solarized'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'lunaru/vim-twig'
+Plug 'gregsexton/matchtag'
+Plug 'plasticboy/vim-markdown'
+Plug 'rodjek/vim-puppet'
+Plug 'othree/html5.vim'
+Plug 'StanAngeloff/php.vim'
+Plug 'fatih/vim-go'
 
-"syntax error checking
-Plugin 'scrooloose/syntastic'
-Plugin 'gcorne/vim-sass-lint'
 
 "git integration
-Plugin 'tpope/vim-fugitive'
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
+Plug 'tpope/vim-fugitive'
 
-call vundle#end()
-filetype on
+call plug#end()
 
 " -------------------------------------------------
 "  important
@@ -78,12 +49,6 @@ set nocompatible
 " -------------------------------------------------
 "  moving around, searching and patterns
 " -------------------------------------------------
-"ctrlp search mode
-let g:ctrlp_working_path_mode = 'r'
-
-"Ctrlp ignore folders
-set wildignore+=*/cache/*,*/node_modules/*,*/vendor/*,*/craft/*
-
 "Ignore case in search mode
 set ignorecase
 
@@ -107,35 +72,34 @@ set hlsearch
 "Enable Syntax Highlighting
 syntax on
 set background=dark
-"allow the terminal to display transparent when necessary
-try
-    let g:solarized_termtrans = 1
 
-    "Turn off all the rediculous formatting
-    let g:solarized_italic=0
-    let g:solarized_bold=0
-    let g:solarized_underline=0
-    "YAY Solarized
-    colorscheme solarized
-catch /^Vim\%((\a\+)\)\=:E185/
-endtry
+"allow the terminal to display transparent when necessary
+let g:solarized_termtrans = 1
+
+"YAY Solarized
+colorscheme solarized
 
 "show tabs and trailing spaces
 set list listchars=tab:»·,trail:·
+augroup ft_go
+    au!
 
-augroup golang
-    autocmd BufRead *.go set list listchars=tab:\ \ ,trail:·
+    au Filetype go setlocal tabstop=4 shiftwidth=4 softtabstop=4 noexpandtab
+    au Filetype go setlocal listchars+=tab:\ \ 
 augroup END
 
-"PHPCs settings for :Phpcs command
-let g:phpcs_std_list="PSR2"
+let g:ale_linters = {
+\   'go': [
+\       'go build'
+\   ]
+\}
 
-"Set the checkers for Syntastic
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
-let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-let g:syntastic_phpcs_conf="--standard=PSR2"
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" -------------------------------------------------
+"  autocompletion
+" -------------------------------------------------
+let g:deoplete#sources#go#gocode_binary = '/home/vagrant/go/bin/gocode'
+let g:deoplete#sources#go#use_cache = '~/.cache/deoplete/go/$GOOS_$GOARCH'
+let g:deoplete#enable_at_startup = 1
 
 " -------------------------------------------------
 "  multiple windows
@@ -154,6 +118,7 @@ set ttyfast
 " -------------------------------------------------
 "  using the mouse
 " -------------------------------------------------
+set mouse=
 
 " -------------------------------------------------
 "  printing
@@ -170,10 +135,7 @@ set ttyfast
 " -------------------------------------------------
 "  editing text
 " -------------------------------------------------
-if v:version > 703 || v:version == 703 && has("patch541")
-    " delete comment char on second line when  joining two commented lines
-    set formatoptions+=j
-endif
+set formatoptions+=j
 
 " -------------------------------------------------
 "  tabs and indenting
@@ -187,10 +149,7 @@ set expandtab
 " -------------------------------------------------
 "  folding
 " -------------------------------------------------
-if has('folding')
-    " When opening files, all folds open by default
-    set nofoldenable
-endif
+set nofoldenable
 
 " -------------------------------------------------
 "  diff mode
@@ -253,25 +212,3 @@ au FileType go nmap <Leader>gd <Plug>(go-doc)
 set number
 "column to display the limit row
 set colorcolumn=80
-
-"let PDV know the directory of my snippets
-if has('gui_running')
-    let g:pdv_template_dir = $HOME ."\\vimfiles\\bundle\\pdv\\templates_snip"
-else
-    let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-endif
-
-"In gui mode  stuff
-if has('gui_running')
-    "pretty fonts
-    set guifont=Inconsolata\ 12
-    "turn off toolbars and other nonsense
-    set guioptions=
-endif
-nmap <leader>sp :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
