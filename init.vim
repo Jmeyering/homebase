@@ -19,6 +19,7 @@ Plug 'godlygeek/tabular'
 
 "search
 Plug 'scrooloose/nerdtree'
+Plug 'kshenoy/vim-signature'
 
 "syntax highlight and colors
 Plug 'fleischie/vim-styled-components'
@@ -37,6 +38,7 @@ Plug 'fatih/vim-go'
 
 "git integration
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
