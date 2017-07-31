@@ -6,8 +6,7 @@
 
 ########## Variables
 
-homedir=~/
-dir=$homedir/dotfiles                    # dotfiles directory
+dir=~/dotfiles                    # dotfiles directory
 
 dotfiles="bashrc bash_aliases tmux.conf bash_profile tmux_git.sh"    # list of filesto symlink in homedir
 
@@ -33,22 +32,25 @@ cd $dir
 #Create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $dotfiles; do
     rm ~/.$file 2>/dev/null
-    ln -s $dir/$file $homedir/.$file 2>/dev/null
+    ln -s $dir/$file ~/.$file 2>/dev/null
 done
 
-ln -s $dir/vim $homedir/.vim
+rm -rf ~/.vim 2>/dev/null
+ln -s $dir/vim ~/.vim
 
 # Add neovim config
-rm $homedir/.config/nvim/init.vim 2>/dev/null
-ln -s $dir/init.vim $homedir/.config/nvim/
+mkdir -p ~/.config/nvim
+rm ~/.config/nvim/init.vim 2>/dev/null
+ln -s $dir/init.vim ~/.config/nvim/
 
 
 #Install VimPlug
-if ! [ -d $homedir/.local/share/nvim/site/autoload/plug.vim ]; then
+if ! [ -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
+    echo "Installing VimPlug"
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-vim +PlugInstall +qall
+nvim +PlugInstall +qall
 
 echo "done"

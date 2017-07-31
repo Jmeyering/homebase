@@ -81,11 +81,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -108,16 +103,11 @@ fi
 
 PATH=$PATH:"~/"
 
-#todo.txt completion file
-if [ -f ~/todo_completion ]; then
-    . ~/todo_completion
-    complete -F _todo t
-fi
-
 #tmux git bar
 if [ -f ~/.tmux_git.sh ]; then
     . ~/.tmux_git.sh
 fi
+
 #tmux git bar
 if [ -f ~/.tmux_autocomplete ]; then
     . ~/.tmux_autocomplete
