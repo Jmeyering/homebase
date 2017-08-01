@@ -24,7 +24,7 @@ Plug 'kshenoy/vim-signature'
 "syntax highlight and colors
 Plug 'fleischie/vim-styled-components'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'altercation/vim-colors-solarized'
+Plug 'iCyMind/NeoSolarized'
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'lunaru/vim-twig'
@@ -73,13 +73,8 @@ set hlsearch
 " -------------------------------------------------
 "Enable Syntax Highlighting
 syntax on
+colorscheme NeoSolarized
 set background=dark
-
-"allow the terminal to display transparent when necessary
-let g:solarized_termtrans = 1
-
-"YAY Solarized
-colorscheme solarized
 
 "show tabs and trailing spaces
 set list listchars=tab:»·,trail:·

@@ -1,2 +1,2 @@
-alias tmux="TERM=xterm-256color /usr/bin/tmux"
+alias tmux="/usr/bin/tmux-next"
 alias vim="nvim"
