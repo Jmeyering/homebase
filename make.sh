@@ -13,6 +13,13 @@ dotfiles="bashrc bash_aliases tmux.conf bash_profile tmux_git.sh"    # list of f
 ##########
 
 #Dependencies
+if ! hash tmux-next 2>/dev/null; then
+    echo "Upgrading tmux to latest version"
+    sudo add-apt-repository -yu ppa:pi-rho/dev
+    sudo apt-get update
+    sudo apt-get install tmux-next
+fi
+
 if ! hash pip3 2>/dev/null; then
     sudo apt-get install python3-pip 1>/dev/null
 fi

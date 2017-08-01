@@ -91,6 +91,7 @@ let g:ale_linters = {
 \   ]
 \}
 
+
 " -------------------------------------------------
 "  autocompletion
 " -------------------------------------------------
@@ -99,8 +100,9 @@ let g:deoplete#sources#go#use_cache = '~/.cache/deoplete/go/$GOOS_$GOARCH'
 let g:deoplete#enable_at_startup = 1
 
 " -------------------------------------------------
-"  multiple windows
+"  git integration
 " -------------------------------------------------
+let g:gitgutter_override_sign_column_highlight = 0
 
 " -------------------------------------------------
 "  multiple tab pages
