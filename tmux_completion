@@ -105,7 +105,7 @@ _tmux() {
         COMPREPLY=( ${COMPREPLY[@]:-} $(compgen -W "$(tmux start-server \; list-commands | cut -d' ' -f1)" -- "${cur}") )
     else
         case ${cmd} in
-            attach-session|attach)
+            a|attach-session|attach)
             case "$prev" in
                 -t)
                     _tmux_complete_session "${cur}"
