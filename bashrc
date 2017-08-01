@@ -113,6 +113,12 @@ if [ -f ~/.tmux_autocomplete ]; then
     . ~/.tmux_autocomplete
 fi
 
+#tmux auto completion
+if [ -f ~/.tmux_completion ]; then
+    . ~/.tmux_completion
+fi
+
+
 #No need to use <C-s> and <C-q> top stop and start stty
 stty -ixon
 

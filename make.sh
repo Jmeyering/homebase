@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 
-dotfiles="bashrc bash_aliases tmux.conf bash_profile tmux_git.sh"    # list of filesto symlink in homedir
+dotfiles="bashrc bash_aliases tmux.conf tmux_completion bash_profile tmux_git.sh"    # list of filesto symlink in homedir
 
 ##########
 
