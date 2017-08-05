@@ -218,3 +218,16 @@ au FileType go nmap <Leader>gd <Plug>(go-doc)
 set number
 "column to display the limit row
 set colorcolumn=80
+
+autocmd User ProjectionistDetect
+\ call projectionist#append(getcwd(),
+\ {
+\   "src/components/*.spec.jsx": {
+\     "alternate": "src/components/{}.jsx",
+\     "type": "test"
+\   },
+\   "src/components/*.jsx": {
+\     "alternate": "src/components/{}.spec.jsx",
+\     "type": "source"
+\   },
+\ })
