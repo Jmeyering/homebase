@@ -21,15 +21,18 @@ if ! hash tmux-next 2>/dev/null; then
 fi
 
 if ! hash pip3 2>/dev/null; then
-    sudo apt-get install python3-pip 1>/dev/null
+    sudo apt-get install python3-pip >/dev/null
 fi
 
 if ! hash nvim 2>/dev/null; then
     echo "Installing NeoVim"
-    sudo add-apt-repository ppa:neovim-ppa/stable 1>/dev/null &&
-    sudo apt-get update 1>/dev/null &&
-    sudo apt-get install neovim 1>/dev/null &&
-    pip3 install neovim 1>/dev/null
+    sudo add-apt-repository ppa:neovim-ppa/stable >/dev/null &&
+    sudo apt-get update >/dev/null &&
+    sudo apt-get install neovim >/dev/null &&
+
+    #Install python and ruby bindings for neovim
+    pip3 install neovim >/dev/null
+    sudo gem install neovim >/dev/null
 fi
 
 

@@ -11,6 +11,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'tpope/vim-projectionist'
 
 "text manipulation
 Plug 'tpope/vim-surround'
@@ -18,7 +19,10 @@ Plug 'mattn/emmet-vim'
 Plug 'godlygeek/tabular'
 
 "search
-Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-vinegar'
+Plug 'wincent/command-t', {
+\   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
+\ }
 Plug 'kshenoy/vim-signature'
 
 "syntax highlight and colors
@@ -60,6 +64,9 @@ set smartcase
 "highlight search resules
 set hlsearch
 
+"Ignored directories
+set wildignore+=*/cache/*,*/node_modules/*,*/vendor/*,*/craft/*
+
 " -------------------------------------------------
 "  tags
 " -------------------------------------------------
@@ -75,6 +82,7 @@ set hlsearch
 syntax on
 colorscheme NeoSolarized
 set background=dark
+let g:airline_solarized_bg='dark'
 
 "show tabs and trailing spaces
 set list listchars=tab:»·,trail:·
@@ -98,6 +106,7 @@ let g:ale_linters = {
 let g:deoplete#sources#go#gocode_binary = '/home/vagrant/go/bin/gocode'
 let g:deoplete#sources#go#use_cache = '~/.cache/deoplete/go/$GOOS_$GOARCH'
 let g:deoplete#enable_at_startup = 1
+autocmd CompleteDone * pclose!
 
 " -------------------------------------------------
 "  git integration
@@ -159,8 +168,6 @@ set diffopt+=vertical
 " -------------------------------------------------
 "  mapping
 " -------------------------------------------------
-"NERDTree mapping
-map <C-n> :NERDTreeToggle<CR>
 "command to add doc blocks
 autocmd FileType php noremap <TAB> <ESC>:call pdv#DocumentWithSnip()<CR>
 
