@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'danro/rename.vim'
 
 "'sensible' defaults
 Plug 'tpope/vim-sensible'
@@ -51,6 +52,9 @@ call plug#end()
 " -------------------------------------------------
 "Who cares about vi compatability
 set nocompatible
+
+" Allow netrw to remove non-empty local directories
+let g:netrw_localrmdir='rm -r'
 
 " -------------------------------------------------
 "  moving around, searching and patterns
@@ -165,6 +169,10 @@ set nofoldenable
 " start diff mode with vertical splits by default
 set diffopt+=vertical
 
+" change split directions because it feels better to me that way.
+set splitbelow
+set splitright
+
 " -------------------------------------------------
 "  mapping
 " -------------------------------------------------
@@ -215,9 +223,16 @@ au FileType go nmap <Leader>gd <Plug>(go-doc)
 "  various
 " -------------------------------------------------
 "Show numbers in the gutter
-set number
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
 "column to display the limit row
-set colorcolumn=80
+let &colorcolumn=join(range(80,999),",")
 
 autocmd User ProjectionistDetect
 \ call projectionist#append(getcwd(),
