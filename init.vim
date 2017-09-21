@@ -97,12 +97,18 @@ augroup ft_go
     au Filetype go setlocal listchars+=tab:\ \ 
 augroup END
 
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
+
+
 let g:ale_linters = {
-\   'go': [
-\       'go build'
-\   ]
+\   'jsx': ['stylelint', 'eslint'],
+\   'go': ['go build']
 \}
 
+let g:ale_linter_aliases = {'jsx': 'css'}
 
 " -------------------------------------------------
 "  autocompletion
