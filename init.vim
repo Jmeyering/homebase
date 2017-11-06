@@ -13,6 +13,8 @@ Plug 'w0rp/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'tpope/vim-projectionist'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 "text manipulation
 Plug 'tpope/vim-surround'
@@ -28,6 +30,7 @@ Plug 'kshenoy/vim-signature'
 
 "syntax highlight and colors
 Plug 'fleischie/vim-styled-components'
+Plug 'chrisbra/Colorizer'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'iCyMind/NeoSolarized'
 Plug 'pangloss/vim-javascript'
@@ -110,6 +113,11 @@ let g:ale_linters = {
 
 let g:ale_linter_aliases = {'jsx': 'css'}
 
+let g:ale_fixers = {'javascript': ['prettier']}
+let g:ale_javascript_prettier_options = '-single-quote --trailing-comma all --write'
+let g:ale_fix_on_save = 1
+
+
 " -------------------------------------------------
 "  autocompletion
 " -------------------------------------------------
@@ -117,6 +125,13 @@ let g:deoplete#sources#go#gocode_binary = '/home/vagrant/go/bin/gocode'
 let g:deoplete#sources#go#use_cache = '~/.cache/deoplete/go/$GOOS_$GOARCH'
 let g:deoplete#enable_at_startup = 1
 autocmd CompleteDone * pclose!
+
+
+autocmd FileType js UltiSnipsAddFiletypes javascript-react
+let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 
 " -------------------------------------------------
 "  git integration
@@ -158,9 +173,9 @@ set formatoptions+=j
 " -------------------------------------------------
 "  tabs and indenting
 " -------------------------------------------------
-set tabstop=4
+set tabstop=2
 "Spaces not tabs
-set shiftwidth=4
+set shiftwidth=2
 "Change existing tabs to spaces
 set expandtab
 
@@ -182,8 +197,6 @@ set splitright
 " -------------------------------------------------
 "  mapping
 " -------------------------------------------------
-"command to add doc blocks
-autocmd FileType php noremap <TAB> <ESC>:call pdv#DocumentWithSnip()<CR>
 
 " -------------------------------------------------
 "  reading and writing files
@@ -238,7 +251,7 @@ augroup numbertoggle
 augroup END
 
 "column to display the limit row
-let &colorcolumn=join(range(80,999),",")
+let &colorcolumn=join(range(81,2000),",")
 
 autocmd User ProjectionistDetect
 \ call projectionist#append(getcwd(),

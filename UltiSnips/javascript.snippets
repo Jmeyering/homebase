@@ -1,0 +1,63 @@
+snippet isc "import styled components"
+import styled from "styled-components";
+endsnippet
+
+snippet ir "import React"
+import React from "react"
+endsnippet
+
+snippet ipt "import PropTypes"
+import PropTypes from "prop-types"
+endsnippet
+
+snippet theme "access styled component theme object"
+${({ theme }) => theme.$1}
+endsnippet
+
+snippet sfc "React stateless funcitonal component"
+const $1 = () => (
+	$2
+);
+endsnippet
+
+snippet saf "styled component anonymous function"
+${({ $1 }) => $2}
+endsnippet
+
+snippet afd "anonymous function with destructured params"
+({ $1 }) => {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet pt "add prop types as a property"
+$1.propTypes = {
+	$2: PropTypes.$3,
+};
+endsnippet
+
+snippet dp "add default props"
+$1.defaultProps = {
+	$2: $3,
+};
+endsnippet
+
+snippet sc "create styled component"
+const $1 = styled.$2`
+`;
+endsnippet
+
+snippet jest "create jest test for component"
+import React from "react";
+import { shallow } from "enzyme";
+import theme from "themes/main";
+
+import $1 from "../";
+
+describe("$1", () => {
+	test("renders correctly", () => {
+		const wrapper = shallow(<$1 theme={theme}></$1>);
+		expect(wrapper).toMatchSnapshot();
+	});
+});
+endsnippet

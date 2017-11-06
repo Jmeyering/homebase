@@ -52,6 +52,7 @@ ln -s $dir/vim ~/.vim
 mkdir -p ~/.config/nvim
 rm ~/.config/nvim/init.vim 2>/dev/null
 ln -s $dir/init.vim ~/.config/nvim/
+ln -s $dir/UltiSnips ~/.config/nvim/UltiSnips
 
 
 #Install VimPlug
