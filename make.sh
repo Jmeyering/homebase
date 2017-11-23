@@ -22,6 +22,7 @@ fi
 
 if ! hash gpg2 2>/dev/null; then
     echo "Installing gpg2"
+    sudo apt-get install gnupg-agent -y
     sudo apt-get install gnupg2 -y
 fi
 
