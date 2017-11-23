@@ -3,15 +3,85 @@ import styled from "styled-components";
 endsnippet
 
 snippet ir "import React"
-import React from "react"
+import React from "react";
+endsnippet
+
+snippet irc "import React and Component"
+import React, { Component } from "react";
 endsnippet
 
 snippet ipt "import PropTypes"
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
+endsnippet
+
+snippet imc "import from current directory"
+import $1 from "./$1";
+endsnippet
+
+snippet imex "import and export from current directory"
+import $1 from "./$1";
+
+export default $1;
 endsnippet
 
 snippet theme "access styled component theme object"
-${({ theme }) => theme.$1}
+${({ theme }) => theme.$1};
+endsnippet
+
+snippet nsc "New React styled component"
+import styled from "styled-components";
+import PropTypes from "prop-types";
+
+const $1 = styled.div`
+`;
+
+$1.propTypes = {
+}
+
+export default $1;
+endsnippet
+
+snippet stateful "New React stateless functional component"
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+
+class $1 extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			$2
+		}
+	}
+
+	render() {
+		return (
+		);
+	}
+}
+
+$1.propTypes = {
+}
+
+export default $1;
+endsnippet
+
+snippet sfc "React stateless funcitonal component"
+const $1 = () => (
+	$2
+);
+endsnippet
+
+snippet nsfc "New React stateless functional component"
+import React from "react";
+import PropTypes from "prop-types";
+
+const $1 = () => (
+);
+
+$1.propTypes = {
+}
+
+export default $1;
 endsnippet
 
 snippet sfc "React stateless funcitonal component"
@@ -59,5 +129,11 @@ describe("$1", () => {
 		const wrapper = shallow(<$1 theme={theme}></$1>);
 		expect(wrapper).toMatchSnapshot();
 	});
+});
+endsnippet
+
+snippet reduxaction "redux action stub"
+export const $1 = () => ({
+  type: "$2",
 });
 endsnippet

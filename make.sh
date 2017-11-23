@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 
-dotfiles="bashrc bash_aliases tmux.conf tmux_completion bash_profile tmux_git.sh"    # list of filesto symlink in homedir
+dotfiles="bashrc gitconfig bash_aliases tmux.conf tmux_completion bash_profile tmux_git.sh"    # list of filesto symlink in homedir
 
 ##########
 
@@ -19,6 +19,12 @@ if ! hash tmux-next 2>/dev/null; then
     sudo apt-get update
     sudo apt-get install tmux-next
 fi
+
+if ! hash gpg2 2>/dev/null; then
+    echo "Installing gpg2"
+    sudo apt-get install gnupg2 -y
+fi
+
 
 if ! hash pip3 2>/dev/null; then
     sudo apt-get install python3-pip >/dev/null
@@ -51,6 +57,7 @@ ln -s $dir/vim ~/.vim
 # Add neovim config
 mkdir -p ~/.config/nvim
 rm ~/.config/nvim/init.vim 2>/dev/null
+rm ~/.config/nvim/UltiSnips 2>/dev/null
 ln -s $dir/init.vim ~/.config/nvim/
 ln -s $dir/UltiSnips ~/.config/nvim/UltiSnips
 
