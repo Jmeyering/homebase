@@ -13,6 +13,11 @@ dotfiles="bashrc gitconfig bash_aliases tmux.conf tmux_completion bash_profile t
 ##########
 
 #Dependencies
+if ! hash gpg2 2>/dev/null; then
+  echo "Installing gpg2"
+  sudo apt-get install gnupg2 -y
+fi
+
 if ! hash tmux-next 2>/dev/null; then
     echo "Upgrading tmux to latest version"
     sudo add-apt-repository -yu ppa:pi-rho/dev
@@ -71,5 +76,7 @@ if ! [ -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
 fi
 
 nvim +PlugInstall +qall
+
+source ~/.bashrc
 
 echo "done"
