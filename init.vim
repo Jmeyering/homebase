@@ -253,10 +253,16 @@ augroup END
 "column to display the limit row
 let &colorcolumn=join(range(81,2000),",")
 
+let g:user_emmet_settings = {
+\  'javascript.jsx' : {
+\      'extends': 'jsx',
+\  },
+\}
+
 autocmd User ProjectionistDetect
 \ call projectionist#append(getcwd(),
 \ {
-\   "src/components/*.spec.jsx": {
+\   "src/components/_*.spec.jsx": {
 \     "alternate": "src/components/{}.jsx",
 \     "type": "test"
 \   },
