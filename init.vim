@@ -29,7 +29,7 @@ Plug 'wincent/command-t', {
 Plug 'kshenoy/vim-signature'
 
 "syntax highlight and colors
-Plug 'fleischie/vim-styled-components'
+Plug 'styled-components/vim-styled-components', { 'branch': 'rewrite' }
 Plug 'chrisbra/Colorizer'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'iCyMind/NeoSolarized'
@@ -114,7 +114,7 @@ let g:ale_linters = {
 let g:ale_linter_aliases = {'jsx': 'css'}
 
 let g:ale_fixers = {'javascript': ['prettier']}
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all --write'
+let g:ale_javascript_prettier_options = '--trailing-comma all --write'
 let g:ale_fix_on_save = 1
 
 
