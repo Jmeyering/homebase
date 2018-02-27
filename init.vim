@@ -108,13 +108,21 @@ augroup END
 
 let g:ale_linters = {
 \   'jsx': ['stylelint', 'eslint'],
-\   'go': ['go build']
+\   'go': ['go build'],
+\   'php': ['phpcs']
 \}
 
-let g:ale_linter_aliases = {'jsx': 'css'}
+let g:ale_linter_aliases = {
+\   'jsx': 'css'
+\}
 
-let g:ale_fixers = {'javascript': ['prettier']}
+let g:ale_fixers = {
+\    'javascript': ['prettier'],
+\    'php': ['phpcbf']
+\}
 let g:ale_javascript_prettier_options = '--trailing-comma all --write'
+let g:ale_php_phpcs_standard = 'psr2'
+let g:ale_php_phpcbf_standard = 'psr2'
 let g:ale_fix_on_save = 1
 
 
@@ -259,15 +267,5 @@ let g:user_emmet_settings = {
 \  },
 \}
 
-autocmd User ProjectionistDetect
-\ call projectionist#append(getcwd(),
-\ {
-\   "src/components/_*.spec.jsx": {
-\     "alternate": "src/components/{}.jsx",
-\     "type": "test"
-\   },
-\   "src/components/*.jsx": {
-\     "alternate": "src/components/{}.spec.jsx",
-\     "type": "source"
-\   },
-\ })
+
+let @z='?=>A {jIreturn A;o}Jx'
