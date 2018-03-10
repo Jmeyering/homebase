@@ -6,12 +6,13 @@ chmod +x install/*
 
 sudo apt-get update -y
 
-#install/dunst &&
-#install/rofi &&
-#install/nitrogen &&
-#install/polybar &&
-#install/arc-theme &&
-#install/i3
+install/dunst &&
+install/rofi &&
+install/nitrogen &&
+install/polybar &&
+install/xfce &&
+install/arc-theme &&
+install/i3
 
 rm ~/.Xresources
 rm -rf ~/.config/dunst
