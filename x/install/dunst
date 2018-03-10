@@ -1,0 +1,5 @@
+#! /bin/bash
+
+if ! hash dunst 2>/dev/null; then
+  sudo apt-get install dunst -y
+fi

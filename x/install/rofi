@@ -1,0 +1,5 @@
+#! /bin/bash
+
+if ! hash rofi 2>/dev/null; then
+  sudo apt-get install rofi -y
+fi

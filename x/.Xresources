@@ -1,0 +1,29 @@
+*.background:       #2f2f38
+*.foreground:       #cfd2cf
+*.cursorColor:      #cfd2cf
+URxvt.background:   [100]#2f2f38
+URxvt*foreground:   #cfd2cf
+URxvt*cursorColor:  #cfd2cf
+URxvt.font:         xft:monofur:size=12
+*.color0:           #34343e
+*.color1:           #9aafaa
+*.color2:           #759496
+*.color3:           #93b3b0
+*.color4:           #688486
+*.color5:           #668ca1
+*.color6:           #759496
+*.color7:           #b0c4bb
+*.color8:           #b0c4bb
+*.color9:           #9aafaa
+*.color10:          #759496
+*.color11:          #93b3b0
+*.color12:          #688486
+*.color13:          #668ca1
+*.color14:          #759496
+*.color15:          #b0c4bb
+rofi.color-enabled: true
+rofi.color-window:  #2f2f38, #688486, #688486
+rofi.color-normal:  #2f2f38, #688486, #2f2f38, #2f2f38, #cfd2cf
+rofi.color-active:  #2f2f38, #688486, #2f2f38, #2f2f38, #cfd2cf
+rofi.color-urgent:  #2f2f38, #688486, #2f2f38, #2f2f38, #cfd2cf
+rofi.font:          "Noto Sans" 13

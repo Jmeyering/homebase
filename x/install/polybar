@@ -1,0 +1,8 @@
+#! /bin/bash
+
+sudo echo "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" >> /etc/apt/sources.list.d/polybar.list
+sudo apt-get update
+
+wget -q -O- http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add - -y
+
+sudo apt-get install polybar
