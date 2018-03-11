@@ -23,7 +23,7 @@ sudo apt-get install \
   libxcb-xrm-dev \
   lxappearance \
   xautolock \
-  compton
+  compton \
   -y
 
 git clone https://www.github.com/Airblader/i3 i3-gaps

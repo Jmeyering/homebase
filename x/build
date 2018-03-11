@@ -10,7 +10,6 @@ install/dunst &&
 install/rofi &&
 install/nitrogen &&
 install/polybar &&
-install/xfce &&
 install/arc-theme &&
 install/i3
 

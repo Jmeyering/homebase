@@ -70,6 +70,9 @@ ln -s $dir/UltiSnips ~/.config/nvim/UltiSnips
 
 #Install VimPlug
 if ! [ -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
+    if ! hash curl 2>/dev/null; then
+      sudo apt-get install curl
+    fi
     echo "Installing VimPlug"
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
