@@ -5,7 +5,7 @@ new_float pixel 2
 # Hide borders
 hide_edge_borders none
 
-set $mod Mod1
+set $mod Mod4
 
 font Inconsolata Regular 11
 
@@ -126,7 +126,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-assign [class="terminal"] → 2
+assign [class="^URxvt$"] → 2
 
 # Autostart Applications
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
