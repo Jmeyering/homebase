@@ -15,6 +15,8 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'tpope/vim-projectionist'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'tobyS/pdv'
+Plug 'tobys/vmustache'
 
 "text manipulation
 Plug 'tpope/vim-surround'
@@ -129,7 +131,7 @@ let g:ale_fix_on_save = 1
 " -------------------------------------------------
 "  autocompletion
 " -------------------------------------------------
-let g:deoplete#sources#go#gocode_binary = '/home/vagrant/go/bin/gocode'
+let g:deoplete#sources#go#gocode_binary = '~/go/bin/gocode'
 let g:deoplete#sources#go#use_cache = '~/.cache/deoplete/go/$GOOS_$GOARCH'
 let g:deoplete#enable_at_startup = 1
 autocmd CompleteDone * pclose!
@@ -140,6 +142,9 @@ let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+
+let g:pdv_template_dir = $HOME ."/.config/nvim/UltiSnips/pdv"
+nnoremap <leader>p :call pdv#DocumentWithSnip()<CR>
 
 " -------------------------------------------------
 "  git integration
