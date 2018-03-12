@@ -5,7 +5,7 @@ new_float pixel 2
 # Hide borders
 hide_edge_borders none
 
-set $mod Mod4
+set $mod Mod1
 
 font Inconsolata Regular 11
 
@@ -127,12 +127,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 assign [class="^URxvt$"] → 2
+assign [class="^Google-chrome$"] → 1
 
 # Autostart Applications
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id dunst
 exec --no-startup-id xautolock -time 15 -locker "$HOME/.config/i3/blurlock"
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ############
 ## Colors ##
@@ -215,4 +216,11 @@ mode "$mode_gaps_outer" {
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
+}
+
+bar {
+  status_command i3blocks
+  tray_output primary
+  tray_padding 0
+  font pango:Cantarell Regular 10
 }

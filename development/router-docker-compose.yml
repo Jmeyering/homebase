@@ -1,0 +1,31 @@
+version: "3" 
+services:
+    nginx-proxy:
+        image: jwilder/nginx-proxy
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+        ports:
+            - 80:80
+        restart: always
+    mysql:
+        image: mysql:5.6
+        restart: always
+        ports:
+            - 3306:3306
+        volumes:
+            - ~/.mysql:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=dockerboxpassword
+    dnsmasq:
+        image: andyshinn/dnsmasq
+        restart: always
+        ports: 
+         - "535:53/tcp"
+         - "535:53/udp"
+        cap_add:
+           - NET_ADMIN
+        command: "--address=/test/52.14.109.72"
+networks:
+    default:
+        external:
+            name: dockerbox

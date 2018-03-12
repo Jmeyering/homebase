@@ -1,16 +1,15 @@
 #!/bin/bash
 ############################
-# .make.sh
+# link
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
 ############################
 
 ########## Variables
 
-dir=~/dotfiles                    # dotfiles directory
+dir=$(pwd)
 
 dotfiles="bashrc gitconfig bash_aliases tmux.conf tmux_completion bash_profile tmux_git.sh"    # list of filesto symlink in homedir
 
-##########
 
 #Dependencies
 if ! hash gpg2 2>/dev/null; then
@@ -20,8 +19,8 @@ fi
 
 if ! hash tmux-next 2>/dev/null; then
     echo "Upgrading tmux to latest version"
-    sudo add-apt-repository -yu ppa:pi-rho/dev
-    sudo apt-get update
+    sudo add-apt-repository -yu ppa:pi-rho/dev >/dev/null &&
+    sudo apt-get update &&
     sudo apt-get install tmux-next
 fi
 
@@ -38,7 +37,7 @@ fi
 
 if ! hash nvim 2>/dev/null; then
     echo "Installing NeoVim"
-    sudo add-apt-repository ppa:neovim-ppa/stable >/dev/null &&
+    sudo add-apt-repository -yu ppa:neovim-ppa/stable >/dev/null &&
     sudo apt-get update >/dev/null &&
     sudo apt-get install neovim >/dev/null &&
 
@@ -48,12 +47,10 @@ if ! hash nvim 2>/dev/null; then
 fi
 
 
-# change to the dotfiles directory
-cd $dir
-
 #Create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $dotfiles; do
     rm ~/.$file 2>/dev/null
+
     ln -s $dir/$file ~/.$file 2>/dev/null
 done
 
@@ -61,12 +58,8 @@ rm -rf ~/.vim 2>/dev/null
 ln -s $dir/vim ~/.vim
 
 # Add neovim config
-mkdir -p ~/.config/nvim
-rm ~/.config/nvim/init.vim 2>/dev/null
-rm ~/.config/nvim/UltiSnips 2>/dev/null
-ln -s $dir/init.vim ~/.config/nvim/
-ln -s $dir/UltiSnips ~/.config/nvim/UltiSnips
-
+rm -rf ~/.config/nvim 2>/dev/null
+ln -s $dir/.config/nvim ~/.config/nvim
 
 #Install VimPlug
 if ! [ -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
