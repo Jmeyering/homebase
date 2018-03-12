@@ -13,6 +13,7 @@ install/arc-theme &&
 install/i3
 
 rm ~/.Xresources
+rm ~/.i3blocks.conf
 rm -rf ~/.config/dunst
 rm -rf ~/.config/i3
 rm -rf ~/.config/nitrogen
