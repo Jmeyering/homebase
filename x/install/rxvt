@@ -1,0 +1,8 @@
+#! /bin/bash
+
+sudo apt install rxvt-unicode-256color
+
+mkdir -p ~/.urxvt/ext
+
+wget -O ~/.urxvt/ext/font-size https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size
+

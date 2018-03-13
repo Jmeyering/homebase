@@ -43,7 +43,7 @@ URxvt.internalBorder:       3
 URxvt.lineSpace:            0
 
 ! Fonts
-URxvt.allow_bold:           false
+URxvt.allow_bold:           true
 URxvt*font: xft:Inconsolata:pixelsize=14
 URxvt*boldFont: xft:Inconsolata:pixelsize=14
 
@@ -55,9 +55,11 @@ URxvt.scrollStyle:          rxvt
 URxvt.scrollBar:            false
 
 ! Perl extensions
-URxvt.perl-ext-common:      default,matcher
+URxvt.perl-ext-common:      default,matcher,font-size
 URxvt.matcher.button:       1
 URxvt.urlLauncher:          firefox
+
+URxvt.font-size.step: 2
 
 ! Cursor
 URxvt.cursorBlink:          true

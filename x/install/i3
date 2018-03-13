@@ -4,6 +4,7 @@ sudo add-apt-repository ppa:aguignard/ppa -y
 sudo apt-get update
 
 sudo apt-get install \
+  acpi \
   autoconf \
   libxcb1-dev \
   libxcb-keysyms1-dev \
