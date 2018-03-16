@@ -16,15 +16,6 @@ services:
             - ~/.mysql:/var/lib/mysql
         environment:
             - MYSQL_ROOT_PASSWORD=dockerboxpassword
-    dnsmasq:
-        image: andyshinn/dnsmasq
-        restart: always
-        ports: 
-         - "535:53/tcp"
-         - "535:53/udp"
-        cap_add:
-           - NET_ADMIN
-        command: "--address=/test/52.14.109.72"
 networks:
     default:
         external:
