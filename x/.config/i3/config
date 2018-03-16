@@ -219,8 +219,18 @@ mode "$mode_gaps_outer" {
 }
 
 bar {
+  i3bar_command i3bar -t
   status_command i3blocks
   tray_output primary
   tray_padding 0
   font pango:Cantarell Regular 10
+  colors {
+    background #22222295
+    statusline #eeeeee
+    separator #666666
+    focused_workspace  #ffffff #d3368260 #ffffff
+    active_workspace   #333333 #5f676a #ffffff
+    inactive_workspace #333333 #222222 #888888
+    urgent_workspace   #2f343a #900000 #ffffff
+  }
 }
