@@ -101,7 +101,10 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+echo $(pwd) > /tmp/whereami
+
 PATH=$PATH:"~/"
+PROMPT_COMMAND="pwd > /tmp/whereami"
 
 #tmux git bar
 if [ -f ~/.tmux_git.sh ]; then

@@ -39,6 +39,7 @@ if ! hash nvim 2>/dev/null; then
     echo "Installing NeoVim"
     sudo add-apt-repository -yu ppa:neovim-ppa/stable >/dev/null &&
     sudo apt-get update >/dev/null &&
+    sudo apt-get install ruby-full >/dev/null
     sudo apt-get install neovim >/dev/null &&
 
     #Install python and ruby bindings for neovim

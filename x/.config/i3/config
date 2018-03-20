@@ -4,6 +4,7 @@ new_float pixel 2
 
 # Hide borders
 hide_edge_borders none
+mouse_warping none
 
 set $mod Mod1
 
@@ -12,18 +13,22 @@ font Inconsolata Regular 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal -cd $(cat /tmp/whereami)
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun
+bindsym $mod+Shift+s exec --no-startup-id shutter -s
 
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+
+bindsym --whole-window --border button6 workspace next
+bindsym --whole-window --border button7 workspace prev
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -68,6 +73,15 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+bindsym Control+$mod+l exec --no-startup-id ~/.config/i3/blurlock
+
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -126,6 +140,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+focus_follows_mouse no
+
 assign [class="^URxvt$"] → 2
 assign [class="^Google-chrome$"] → 1
 
@@ -178,8 +194,8 @@ client.placeholder      $foreground $background $foreground $background $backgro
 #############################
 
 # Set inner/outer gaps
-gaps inner 8
-gaps outer 8
+gaps inner 5
+gaps outer 5
 
 
 set $mode_gaps Gaps: (o) outer, (i) inner

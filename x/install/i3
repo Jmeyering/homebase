@@ -25,6 +25,7 @@ sudo apt-get install \
   lxappearance \
   xautolock \
   compton \
+  shutter \
   -y
 
 git clone https://www.github.com/Airblader/i3 i3-gaps

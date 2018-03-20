@@ -31,7 +31,7 @@ Plug 'wincent/command-t', {
 Plug 'kshenoy/vim-signature'
 
 "syntax highlight and colors
-Plug 'styled-components/vim-styled-components', { 'branch': 'rewrite' }
+Plug 'styled-components/vim-styled-components'
 Plug 'chrisbra/Colorizer'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'iCyMind/NeoSolarized'
@@ -44,6 +44,7 @@ Plug 'rodjek/vim-puppet'
 Plug 'othree/html5.vim'
 Plug 'StanAngeloff/php.vim'
 Plug 'fatih/vim-go'
+Plug 'sebdah/vim-delve'
 
 
 "git integration
@@ -110,7 +111,6 @@ augroup END
 
 let g:ale_linters = {
 \   'jsx': ['stylelint', 'eslint'],
-\   'go': ['go build'],
 \   'php': ['phpcs']
 \}
 
