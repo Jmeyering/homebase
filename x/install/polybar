@@ -1,6 +1,6 @@
 #! /bin/bash
 
-echo "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" | sudo tee --append /etc/apt/sources.list.d/polybar.list
+echo "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" | sudo tee /etc/apt/sources.list.d/polybar.list
 sudo apt-get update
 
 wget -q -O- http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -

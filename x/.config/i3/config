@@ -1,6 +1,7 @@
 
-new_window pixel 2
-new_float pixel 2
+default_border pixel 3
+default_floating_border pixel 3
+
 
 # Hide borders
 hide_edge_borders none
@@ -8,7 +9,7 @@ mouse_warping none
 
 set $mod Mod1
 
-font Inconsolata Regular 11
+font pango:Cantarell Regular 9
 
 floating_modifier $mod
 
@@ -19,7 +20,7 @@ bindsym $mod+Return exec i3-sensible-terminal -cd $(cat /tmp/whereami)
 bindsym $mod+Shift+q kill
 
 bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun
-bindsym $mod+Shift+s exec --no-startup-id shutter -s
+bindsym $mod+Shift+s exec --no-startup-id shutter -s -e --disable_systray
 
 # change focus
 bindsym $mod+h focus left
@@ -27,26 +28,17 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
 bindsym --whole-window --border button6 workspace next
 bindsym --whole-window --border button7 workspace prev
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+z split h
@@ -70,20 +62,19 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+c exec "i3-msg 'floating toggle; sticky toggle; resize shrink width 10000px; resize grow width 400px; resize shrink height 10000px; resize grow height 250px;move position 10px 10px;'"
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
+bindsym $mod+m move workspace to output right
+
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-bindsym Control+$mod+l exec --no-startup-id ~/.config/i3/blurlock
+bindsym $mod+Control+l exec --no-startup-id ~/.config/i3/blurlock
 
-
-# switch to workspace
+# Standard commands work also
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -142,10 +133,14 @@ bindsym $mod+r mode "resize"
 
 focus_follows_mouse no
 
-assign [class="^URxvt$"] → 2
 assign [class="^Google-chrome$"] → 1
+assign [class="^URxvt$"] → 2
+assign [class="^Slack$"] → 3
 
 # Autostart Applications
+exec --no-startup-id chrome
+exec --no-startup-id urxvt
+exec --no-startup-id slack
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id dunst
 exec --no-startup-id xautolock -time 15 -locker "$HOME/.config/i3/blurlock"
@@ -176,7 +171,6 @@ set_from_resource $color13    color13
 set_from_resource $color14    color14
 set_from_resource $color15    color15
 
-
 # Theme colors
 # class                 border      backgr.     text        indic.
 # My colors
@@ -196,7 +190,6 @@ client.placeholder      $foreground $background $foreground $background $backgro
 # Set inner/outer gaps
 gaps inner 5
 gaps outer 5
-
 
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -250,3 +243,4 @@ bar {
     urgent_workspace   #2f343a #900000 #ffffff
   }
 }
+

@@ -111,7 +111,8 @@ augroup END
 
 let g:ale_linters = {
 \   'jsx': ['stylelint', 'eslint'],
-\   'php': ['phpcs']
+\   'php': ['phpcs'],
+\   'go': ['gofmt', 'golint', 'go vet', 'go build']
 \}
 
 let g:ale_linter_aliases = {
@@ -139,12 +140,9 @@ autocmd CompleteDone * pclose!
 
 autocmd FileType js UltiSnipsAddFiletypes javascript-react
 let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 
 let g:pdv_template_dir = $HOME ."/.config/nvim/UltiSnips/pdv"
-nnoremap <leader>p :call pdv#DocumentWithSnip()<CR>
+nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 
 " -------------------------------------------------
 "  git integration
@@ -245,7 +243,7 @@ filetype plugin indent on
 let g:go_fmt_command = "goimports"
 
 "map <leader>(gd) to godocumentation
-au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <leader>gd <Plug>(go-doc)
 
 " -------------------------------------------------
 "  multi-byte characters
@@ -271,6 +269,3 @@ let g:user_emmet_settings = {
 \      'extends': 'jsx',
 \  },
 \}
-
-
-let @z='?=>A {jIreturn A;o}Jx'

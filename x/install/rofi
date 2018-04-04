@@ -1,5 +1,8 @@
 #! /bin/bash
 
 if ! hash rofi 2>/dev/null; then
-  sudo apt-get install rofi -y
+  sudo add-apt-repository ppa:aguignard/ppa -y
+  sudo apt update
+
+  sudo apt -y install rofi
 fi

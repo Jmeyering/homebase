@@ -48,6 +48,8 @@ git clone git://github.com/vivien/i3blocks
 cd i3blocks
 sudo make clean debug
 sudo make install
+sudo wget -O /usr/local/libexec/i3blocks/openvpn \
+  https://raw.githubusercontent.com/vivien/i3blocks-contrib/master/openvpn/openvpn
 
 cd ../
 rm -rf i3blocks

@@ -4,6 +4,13 @@ dir=$(pwd)
 
 chmod +x install/*
 
+mkdir -p ~/.fonts/
+wget -O ~/.fonts/MaterialIcons-Regular.ttf \
+  https://github.com/google/material-design-icons/raw/master/iconfont/MaterialIcons-Regular.ttf
+
+wget https://use.fontawesome.com/releases/v5.0.8/fontawesome-free-5.0.8.zip
+unzip fontawesome-free-5.0.8.zip -d ~/.fonts/
+
 sudo apt-get update -y
 
 install/dunst &&
