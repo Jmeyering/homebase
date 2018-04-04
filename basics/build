@@ -21,7 +21,7 @@ if ! hash tmux-next 2>/dev/null; then
     echo "Upgrading tmux to latest version"
     sudo add-apt-repository -yu ppa:pi-rho/dev >/dev/null &&
     sudo apt-get update &&
-    sudo apt-get install tmux-next
+    sudo apt-get install tmux-next -y
 fi
 
 if ! hash gpg2 2>/dev/null; then
@@ -32,19 +32,19 @@ fi
 
 
 if ! hash pip3 2>/dev/null; then
-    sudo apt-get install python3-pip >/dev/null
+    sudo apt-get install python3-pip -y
 fi
 
 if ! hash nvim 2>/dev/null; then
     echo "Installing NeoVim"
     sudo add-apt-repository -yu ppa:neovim-ppa/stable >/dev/null &&
     sudo apt-get update >/dev/null &&
-    sudo apt-get install ruby-full >/dev/null
-    sudo apt-get install neovim >/dev/null &&
+    sudo apt-get install ruby-full -y &&
+    sudo apt-get install neovim -y &&
 
     #Install python and ruby bindings for neovim
-    pip3 install neovim >/dev/null
-    sudo gem install neovim >/dev/null
+    pip3 install neovim &&
+    sudo gem install neovim
 fi
 
 
@@ -65,7 +65,7 @@ ln -s $dir/.config/nvim ~/.config/nvim
 #Install VimPlug
 if ! [ -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
     if ! hash curl 2>/dev/null; then
-      sudo apt-get install curl
+      sudo apt-get install curl -y
     fi
     echo "Installing VimPlug"
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \

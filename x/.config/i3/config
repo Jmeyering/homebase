@@ -9,7 +9,7 @@ mouse_warping none
 
 set $mod Mod1
 
-font pango:Cantarell Regular 9
+font pango:Cantarell Regular 18
 
 floating_modifier $mod
 
@@ -30,9 +30,6 @@ bindsym $mod+l focus right
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
-
-bindsym --whole-window --border button6 workspace next
-bindsym --whole-window --border button7 workspace prev
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -232,7 +229,7 @@ bar {
   status_command i3blocks
   tray_output primary
   tray_padding 0
-  font pango:Cantarell Regular 10
+  font pango:Cantarell Regular 15
   colors {
     background #22222295
     statusline #eeeeee

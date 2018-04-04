@@ -4,13 +4,5 @@ chmod +x ./install/*
 
 ./install/node8
 ./install/docker
+./install/go
 
-mkdir -p ~/router
-
-ln -s $(pwd)/router-docker-compose.yml ~/router/docker-compose.yml
-
-echo "Linked router docker container in ~/router."
-echo "run \`docker-compose up -d\` in that directory"
-echo "to start the dnsmasq container"
-echo ""
-echo "A reboot is most likely required."

@@ -1,5 +1,6 @@
 basics/vim/plugged
 en.utf-8.add.spl
 .netrwhist
+*.sw*
 
 bg-saved.cfg

@@ -22,7 +22,7 @@ rofi.color-window:  #2f2f38, #688486, #688486
 rofi.color-normal:  #2f2f38, #688486, #2f2f38, #2f2f38, #cfd2cf
 rofi.color-active:  #2f2f38, #688486, #2f2f38, #2f2f38, #cfd2cf
 rofi.color-urgent:  #2f2f38, #688486, #2f2f38, #2f2f38, #cfd2cf
-rofi.font:          "Noto Sans" 13
+rofi.font:          "Noto Sans" 25
 
 !-------------------------------------------------------------------------------
 ! URxvt settings
@@ -42,8 +42,8 @@ URxvt.lineSpace:            0
 
 ! Fonts
 URxvt.allow_bold:           true
-URxvt*font: xft:Inconsolata:pixelsize=14
-URxvt*boldFont: xft:Inconsolata:pixelsize=14
+URxvt*font: xft:Inconsolata:pixelsize=25
+URxvt*boldFont: xft:Inconsolata:pixelsize=25
 
 ! Fix font space
 URxvt*letterSpace: 1
