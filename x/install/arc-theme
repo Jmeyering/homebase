@@ -1,9 +1,0 @@
-#! /bin/bash
-
-echo "deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /" | sudo tee --append /etc/apt/sources.list.d/arc-theme.list
-
-sudo apt-get update
-
-wget -q -O- http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_16.04/Release.key | sudo apt-key add -
-
-sudo apt-get install arc-theme

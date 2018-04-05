@@ -5,4 +5,4 @@ chmod +x ./install/*
 ./install/node8
 ./install/docker
 ./install/go
-
+./install/openvpn

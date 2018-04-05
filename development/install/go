@@ -7,7 +7,7 @@ if ! hash go 2>/dev/null; then
   vim +GoInstallBinaries +qall
   rm go1.10.linux-amd64.tar.gz
 
-  go get -u github.com/derekparker/delve/cmd/dlv
+  /usr/local/go/bin/go get -u github.com/derekparker/delve/cmd/dlv
 fi
 
 if ! hash dep 2>/dev/null; then

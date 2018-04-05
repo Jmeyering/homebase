@@ -4,20 +4,12 @@ dir=$(pwd)
 
 chmod +x install/*
 
-mkdir -p ~/.fonts/
-wget -O ~/.fonts/MaterialIcons-Regular.ttf \
-  https://github.com/google/material-design-icons/raw/master/iconfont/MaterialIcons-Regular.ttf
-
-wget https://use.fontawesome.com/releases/v5.0.8/fontawesome-free-5.0.8.zip
-unzip fontawesome-free-5.0.8.zip -d ~/.fonts/
-
 sudo apt-get update -y
 
 install/dunst &&
 install/rofi &&
 install/dnsmasq &&
 install/nitrogen &&
-install/arc-theme &&
 install/rxvt &&
 install/i3
 
@@ -33,6 +25,8 @@ ln -s $dir/.Xresources ~/.Xresources
 ln -s $dir/.config/compton.conf ~/.config/
 ln -s $dir/.i3blocks.conf ~/
 sudo ln -s $dir/dnsmasq-test.conf /etc/dnsmasq.d/test
+
+sudo service dnsmasq restart
 
 ln -s $dir/.config/dunst ~/.config/
 ln -s $dir/.config/i3 ~/.config/
