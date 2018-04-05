@@ -42,8 +42,8 @@ URxvt.lineSpace:            0
 
 ! Fonts
 URxvt.allow_bold:           true
-URxvt*font: xft:Inconsolata:pixelsize=25
-URxvt*boldFont: xft:Inconsolata:pixelsize=25
+URxvt*font: xft:Inconsolata:pixelsize=20
+URxvt*boldFont: xft:Inconsolata:pixelsize=20
 
 ! Fix font space
 URxvt*letterSpace: 1

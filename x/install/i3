@@ -43,6 +43,8 @@ cd ../../
 rm -rf i3-gaps
 
 
+sudo apt install i3lock
+
 git clone git://github.com/vivien/i3blocks
 cd i3blocks
 sudo make clean debug

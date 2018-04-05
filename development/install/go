@@ -9,3 +9,7 @@ if ! hash go 2>/dev/null; then
 
   go get -u github.com/derekparker/delve/cmd/dlv
 fi
+
+if ! hash dep 2>/dev/null; then
+  curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+fi

@@ -16,6 +16,7 @@ sudo apt-get update -y
 install/dunst &&
 install/rofi &&
 install/dnsmasq &&
+install/nitrogen &&
 install/arc-theme &&
 install/rxvt &&
 install/i3
@@ -24,6 +25,7 @@ rm ~/.Xresources
 rm ~/.i3blocks.conf
 rm -rf ~/.config/dunst
 rm -rf ~/.config/i3
+rm -rf ~/.config/nitrogen
 rm ~/.config/compton.conf
 sudo rm /etc/dnsmasq.d/test
 
@@ -34,5 +36,6 @@ sudo ln -s $dir/dnsmasq-test.conf /etc/dnsmasq.d/test
 
 ln -s $dir/.config/dunst ~/.config/
 ln -s $dir/.config/i3 ~/.config/
+ln -s $dir/.config/nitrogen ~/.config/
 
 sudo /etc/init.d/dnsmasq restart

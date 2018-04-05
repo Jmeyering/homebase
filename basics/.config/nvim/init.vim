@@ -245,6 +245,9 @@ let g:go_fmt_command = "goimports"
 "map <leader>(gd) to godocumentation
 au FileType go nmap <leader>gd <Plug>(go-doc)
 
+au FileType go nmap <leader>b :DlvToggleBreakpoint<cr>
+au FileType go nmap <leader>r :DlvToggleTracepoint<cr>
+
 " -------------------------------------------------
 "  multi-byte characters
 " -------------------------------------------------

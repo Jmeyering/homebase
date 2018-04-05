@@ -9,7 +9,7 @@ mouse_warping none
 
 set $mod Mod1
 
-font pango:Cantarell Regular 18
+font pango:Cantarell Regular 13
 
 floating_modifier $mod
 
@@ -135,13 +135,33 @@ assign [class="^URxvt$"] → 2
 assign [class="^Slack$"] → 3
 
 # Autostart Applications
-exec --no-startup-id chrome
+exec --no-startup-id google-chrome
 exec --no-startup-id urxvt
 exec --no-startup-id slack
+exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id dunst
 exec --no-startup-id xautolock -time 15 -locker "$HOME/.config/i3/blurlock"
+
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+################
+## Media Keys ##
+################
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 ############
 ## Colors ##
@@ -229,7 +249,7 @@ bar {
   status_command i3blocks
   tray_output primary
   tray_padding 0
-  font pango:Cantarell Regular 15
+  font pango:Cantarell Regular 12
   colors {
     background #22222295
     statusline #eeeeee
