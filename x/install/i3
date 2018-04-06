@@ -9,6 +9,7 @@ sudo apt-get update
 sudo apt install \
   acpi \
   autoconf \
+  help2man \
   libxcb1-dev \
   libxcb-keysyms1-dev \
   libpango1.0-dev \
@@ -29,6 +30,15 @@ sudo apt install \
   -y
 
 
+##############################################
+## Install light to manage screen bightness ##
+##############################################
+git clone https://github.com/haikarainen/light.git
+cd light
+sudo make
+sudo make install
+cd ../
+rm -rf light
 
 #######################
 ## Build i3 from src ##
