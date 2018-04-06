@@ -3,7 +3,10 @@
 sudo add-apt-repository ppa:aguignard/ppa -y
 sudo apt-get update
 
-sudo apt-get install \
+#####################
+## Install i3 deps ##
+#####################
+sudo apt install \
   acpi \
   autoconf \
   libxcb1-dev \
@@ -23,10 +26,13 @@ sudo apt-get install \
   libxcb-xrm-dev \
   libxcb-xrm-dev \
   lxappearance \
-  xautolock \
-  compton \
   -y
 
+
+
+#######################
+## Build i3 from src ##
+#######################
 git clone https://www.github.com/Airblader/i3 i3-gaps
 
 cd i3-gaps
@@ -43,8 +49,27 @@ cd ../../
 rm -rf i3-gaps
 
 
-sudo apt install i3lock
+##############################################
+## Install Lightweight support applications ##
+##############################################
+sudo add-apt-repository ppa:font-manager/staging
+sudo apt-get update
 
+sudo apt install \
+  i3lock \
+  thunar \
+  blueman \
+  pavucontrol \
+  wicd \
+  xautolock \
+  shutter \
+  compton \
+  font-manager \
+  -y
+
+#############################
+## Build i3blocks from src ##
+#############################
 git clone git://github.com/vivien/i3blocks
 cd i3blocks
 sudo make clean debug

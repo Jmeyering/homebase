@@ -6,3 +6,4 @@ mkdir -p ~/.urxvt/ext
 
 wget -O ~/.urxvt/ext/font-size https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size
 
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/urxvt 100

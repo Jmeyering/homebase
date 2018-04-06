@@ -19,8 +19,8 @@ bindsym $mod+Return exec i3-sensible-terminal -cd $(cat /tmp/whereami)
 # kill focused window
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun
-bindsym $mod+Shift+s exec --no-startup-id shutter -s -e --disable_systray
+bindsym $mod+d exec --no-startup-id "rofi -combi-modi window,drun -show combi -modi combi"
+bindsym $mod+Shift+s exec --no-startup-id shutter -s -e --disable_systray -o /tmp/screenshot.png
 
 # change focus
 bindsym $mod+h focus left
@@ -143,7 +143,7 @@ exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id dunst
 exec --no-startup-id xautolock -time 15 -locker "$HOME/.config/i3/blurlock"
 
-#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ################
 ## Media Keys ##
@@ -193,11 +193,19 @@ set_from_resource $color15    color15
 # My colors
 client.background       $background
 
-client.focused          #cb4b16 $background $foreground $background #cb4b16
+client.focused          #e60053     $background $foreground $background #e60053
 client.unfocused        $foreground $background $foreground $background $background
 client.focused_inactive $foreground $background $foreground $background $background
 client.urgent           $foreground $background $foreground $background $background
 client.placeholder      $foreground $background $foreground $background $background
+
+#################################
+### Window Specific Placement ###
+#################################
+for_window [class="^Blueman-manager$"] floating enable
+for_window [class="^Wicd-client.py$"] floating enable
+for_window [class="^Font-manager$"] floating enable
+for_window [class="^Pavucontrol$"] floating enable
 
 
 #############################
@@ -243,21 +251,3 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
-bar {
-  i3bar_command i3bar -t
-  status_command i3blocks
-  tray_output primary
-  tray_padding 0
-  font pango:Cantarell Regular 12
-  colors {
-    background #22222295
-    statusline #eeeeee
-    separator #666666
-    focused_workspace  #ffffff #d3368260 #ffffff
-    active_workspace   #333333 #5f676a #ffffff
-    inactive_workspace #333333 #222222 #888888
-    urgent_workspace   #2f343a #900000 #ffffff
-  }
-}
-
