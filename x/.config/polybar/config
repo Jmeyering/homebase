@@ -42,7 +42,7 @@
   font-2 = Font Awesome 5 Brands:size=12:antialias=false;0
 
   modules-left = i3
-  modules-right = cpu memory
+  modules-right = cpu memory vpn
 
 [module/i3]
   type=internal/i3
@@ -251,3 +251,12 @@
   type = internal/date
   interval = 2
   date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+
+[module/vpn]
+  type = custom/script
+  exec = echo vpn
+  exec-if = pgrep -x openvpn
+  interval = 5
+  format-underline = #268bd2
+  format-prefix = " "
+  format-prefix-foreground = #5b
