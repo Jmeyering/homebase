@@ -1,0 +1,14 @@
+#!/bin/sh
+
+LAPTOP_OUTPUT=eDP-1
+MONITOR_LEFT=DP-1-1
+MONITOR_RIGHT=DP-2-2
+
+xrandr \
+--output $LAPTOP_OUTPUT \
+  --auto \
+  --primary \
+--output $MONITOR_LEFT \
+  --off \
+--output $MONITOR_RIGHT \
+  --off

@@ -1,0 +1,10 @@
+#!/bin/sh
+LAPTOP_OUTPUT=eDP-1
+
+if xrandr | grep -A1 $LAPTOP_OUTPUT | grep "*"; then
+  ./screens/dock
+else
+  ./screens/undock
+fi
+
+i3-msg restart

@@ -19,8 +19,9 @@ bindsym $mod+Return exec i3-sensible-terminal -cd $(cat /tmp/whereami)
 # kill focused window
 bindsym $mod+Shift+q kill
 
+bindsym $mod+x exec --no-startup-id ~/homebase/x/toggleDisplays
 bindsym $mod+d exec --no-startup-id "rofi -combi-modi window,drun -show combi -modi combi"
-bindsym $mod+Shift+s exec --no-startup-id shutter -s -e --disable_systray -o /tmp/screenshot.png
+bindsym $mod+Shift+s exec --no-startup-id shutter -s -e --disable_systray
 
 # change focus
 bindsym $mod+h focus left
@@ -134,15 +135,15 @@ assign [class="^Google-chrome$"] → 1
 assign [class="^URxvt$"] → 2
 assign [class="^Slack$"] → 3
 
-# Autostart Applications
+############################
+## Autostart Applications ##
+############################
 exec --no-startup-id google-chrome
 exec --no-startup-id urxvt
 exec --no-startup-id slack
-exec --no-startup-id synclient NaturalScrolling=1 VertScrollDelta=-113
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id dunst
 exec --no-startup-id xautolock -time 15 -locker "$HOME/.config/i3/blurlock"
-
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ################
@@ -158,8 +159,8 @@ bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
@@ -206,6 +207,10 @@ for_window [class="^Blueman-manager$"] floating enable
 for_window [class="^Wicd-client.py$"] floating enable
 for_window [class="^Font-manager$"] floating enable
 for_window [class="^Pavucontrol$"] floating enable
+for_window [class="^System-config-printer.py$"] floating enable
+for_window [class="^Arandr$"] floating enable
+for_window [window_role="pop-up"] floating enable
+
 
 
 #############################

@@ -1,98 +1,54 @@
 [global]
-    font = Cantarell 20
+    font = Cantarell 12
     allow_markup = yes
-    format = "%s %p\n%b"
+    format = "<b>%s</b>\n%b"
     sort = yes
     indicate_hidden = yes
-
-    alignment = left
-
-    bounce_freq = 5
-
-
-    # Show age of message if message is older than show_age_threshold
-    # seconds.
-    # Set to -1 to disable.
+    alignment = center
+    bounce_freq = 0
     show_age_threshold = 60
-
-    # Split notifications into multiple lines if they don't fit into
-    # geometry.
-    word_wrap = no
-
-    # Ignore newlines '\n' in notifications.
+    word_wrap = yes
     ignore_newline = no
-
-
-    geometry = "0x4-25+25"
-
-    shrink = yes
-
-    transparency = 15
-
-    # Don't remove messages, if the user is idle (no mouse or keyboard input)
-    # for longer than idle_threshold seconds.
-    # Set to 0 to disable.
-    # default 120
+    geometry = "1000x5-6+30"
+    transparency = 0
     idle_threshold = 120
-
     follow = mouse
-
-    # Should a notification popped up from history be sticky or timeout
-    # as if it would normally do.
     sticky_history = yes
-
-    # Maximum amount of notifications kept in history
-    history_length = 20
-
-    # Display indicators for URLs (U) and actions (A).
-    show_indicators = yes
-
-    # The height of a single line.  If the height is smaller than the
-    # font height, it will get raised to the font height.
-    # This adds empty space above and under the text.
     line_height = 0
-
-    # Draw a line of "separator_height" pixel height between two
-    # notifications.
-    # Set to 0 to disable.
-    separator_height = 1
-
-    # Padding between text and separator.
-    # padding = 8
+    separator_height = 2
     padding = 8
-
-    # Horizontal padding.
-    horizontal_padding = 10
-
-    separator_color = #454947
-
-    # dmenu path.
-    dmenu = /usr/bin/dmenu -p dunst:
-
-    # Browser for opening urls in context menu.
-    browser = firefox
-
-    # Align icons left/right/off
+    horizontal_padding = 8
+    separator_color = #585858
+    startup_notification = false
+    show_indicators = yes
+    browser = google-chrome
     icon_position = left
+    max_icon_size = 64
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
+    icon_folders = /usr/share/icons/Adwaita/256x256/status/:/usr/share/icons/Adwaita/256x256/devices/
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
 
 [frame]
-    width = 2
-    color = "#5f6b5f"
+    width = 1
+    color = "#383838"
 
 [urgency_low]
-    background = "#2f2f38"
-    foreground = "#cfd2cf"
-    timeout = 10
+    background = "#181818"
+    foreground = "#E3C7AF"
+    timeout = 5
 
 [urgency_normal]
-    background = "#2f2f38"
-    foreground = "#cfd2cf"
-    timeout = 10
+    background = "#181818"
+    foreground = "#E3C7AF"
+    timeout = 20
 
 [urgency_critical]
-    background = "#2f2f38"
-    foreground = "#cfd2cf"
+    background = "#181818"
+    foreground = "#E3C7AF"
     timeout = 0

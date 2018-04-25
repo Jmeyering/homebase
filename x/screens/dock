@@ -1,0 +1,19 @@
+#!/bin/sh
+
+LAPTOP_OUTPUT=eDP-1
+MONITOR_LEFT=DP-1-1
+MONITOR_RIGHT=DP-2-2
+
+xrandr \
+--output $LAPTOP_OUTPUT \
+  --off \
+--output $MONITOR_LEFT \
+  --primary \
+  --mode 1920x1200 \
+  --pos 0x0 \
+  --rotate normal \
+  --scale 1x1 \
+--output $MONITOR_RIGHT \
+  --mode 3840x2160 \
+  --pos 2880x0 \
+  --rotate normal
