@@ -1,4 +1,3 @@
-
 default_border pixel 3
 default_floating_border pixel 3
 
@@ -203,15 +202,11 @@ client.placeholder      $foreground $background $foreground $background $backgro
 #################################
 ### Window Specific Placement ###
 #################################
-for_window [class="^Blueman-manager$"] floating enable
-for_window [class="^Wicd-client.py$"] floating enable
 for_window [class="^Font-manager$"] floating enable
 for_window [class="^Pavucontrol$"] floating enable
 for_window [class="^System-config-printer.py$"] floating enable
 for_window [class="^Arandr$"] floating enable
 for_window [window_role="pop-up"] floating enable
-
-
 
 #############################
 ### settings for i3-gaps: ###

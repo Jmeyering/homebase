@@ -1,5 +1,4 @@
 #! /bin/bash
 
 sudo add-apt-repository ppa:fossfreedom/arc-gtk-theme-daily
-sudo apt-get update
 sudo apt-get install arc-theme

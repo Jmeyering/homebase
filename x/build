@@ -9,14 +9,13 @@ sudo apt-get update -y
 install/dunst &&
 install/polybar &&
 install/rofi &&
-install/dnsmasq &&
 install/nitrogen &&
 install/rxvt &&
 install/arc-theme &&
+install/playerctl &&
 install/i3
 
 rm ~/.Xresources
-rm ~/.i3blocks.conf
 rm -rf ~/.config/dunst
 rm -rf ~/.config/i3
 rm -rf ~/.config/polybar
@@ -26,14 +25,13 @@ sudo rm /etc/dnsmasq.d/test
 
 ln -s $dir/.Xresources ~/.Xresources
 ln -s $dir/.config/compton.conf ~/.config/
-ln -s $dir/.i3blocks.conf ~/
 sudo ln -s $dir/dnsmasq-test.conf /etc/dnsmasq.d/test
 
-sudo service dnsmasq restart
 
 ln -s $dir/.config/dunst ~/.config/
 ln -s $dir/.config/i3 ~/.config/
 ln -s $dir/.config/nitrogen ~/.config/
 ln -s $dir/.config/polybar ~/.config/
 
+sudo service dnsmasq restart
 sudo /etc/init.d/dnsmasq restart

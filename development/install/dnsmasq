@@ -1,0 +1,4 @@
+#! /bin/bash
+
+sudo apt install dnsmasq
+sudo sed -i "s/.*DNSStubListener.*/DNSStubListener=no/" /etc/systemd/resolved.conf

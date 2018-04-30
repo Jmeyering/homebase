@@ -1,0 +1,9 @@
+#! /bin/bash
+PLAYERCTL_VERSION=0.6.0
+PLAYERCTL_FILE=playerctl-${PLAYERCTL_VERSION}_amd64.deb
+
+if ! hash playerctl 2>/dev/null; then
+  wget https://github.com/acrisci/playerctl/releases/download/v${PLAYERCTL_VERSION}/${PLAYERCTL_FILE}
+  sudo apt install ./${PLAYERCTL_FILE}
+  rm ${PLAYERCTL_FILE}
+fi

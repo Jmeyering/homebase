@@ -6,3 +6,4 @@ chmod +x ./install/*
 ./install/docker
 ./install/go
 ./install/openvpn
+./install/dnsmasq

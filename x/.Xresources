@@ -1,3 +1,4 @@
+Xft.dpi: 150
 *.background:       #2f2f38
 *.foreground:       #cfd2cf
 *.cursorColor:      #cfd2cf
