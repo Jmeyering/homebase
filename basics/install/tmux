@@ -1,0 +1,12 @@
+#! /bin/bash
+
+if ! hash tmux-next 2>/dev/null; then
+    echo "Upgrading tmux to latest version"
+    sudo add-apt-repository -yu ppa:pi-rho/dev >/dev/null &&
+    sudo apt update &&
+    sudo apt install tmux-next -y
+
+    ln -s ${HOME}/homebase/basics/tmux.conf ${HOME}/
+    ln -s ${HOME}/homebase/basics/tmux_completion ${HOME}/
+    ln -s ${HOME}/homebase/basics/tmux_git.sh ${HOME}/
+fi
