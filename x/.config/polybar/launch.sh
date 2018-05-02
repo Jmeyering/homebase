@@ -3,7 +3,7 @@
 killall polybar
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload top &
-    MONITOR=$m polybar --reload bottom &
+    MONITOR=$m polybar top &
+    MONITOR=$m polybar bottom &
   done
 fi

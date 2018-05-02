@@ -82,6 +82,10 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+bindsym $mod+apostrophe workspace code
+bindsym $mod+semicolon workspace code2
+bindsym $mod+bracketleft workspace www
+bindsym $mod+bracketright workspace chat
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -94,6 +98,10 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+apostrophe move container to workspace code
+bindsym $mod+Shift+semicolon move container to workspace code2
+bindsym $mod+Shift+bracketleft move container to workspace www
+bindsym $mod+Shift+bracketright move container to workspace chat
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -130,16 +138,12 @@ bindsym $mod+r mode "resize"
 
 focus_follows_mouse no
 
-assign [class="^Google-chrome$"] → 1
-assign [class="^URxvt$"] → 2
-assign [class="^Slack$"] → 3
-
 ############################
 ## Autostart Applications ##
 ############################
-exec --no-startup-id google-chrome
-exec --no-startup-id urxvt
-exec --no-startup-id slack
+exec --no-startup-id i3-msg "workspace www; exec /usr/bin/google-chrome"
+exec --no-startup-id i3-msg "workspace code; exec /usr/bin/urxvt"
+exec --no-startup-id i3-msg "workspace chat; exec /snap/bin/slack"
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id dunst
 exec --no-startup-id xautolock -time 15 -locker "$HOME/.config/i3/blurlock"
@@ -205,6 +209,7 @@ client.placeholder      $foreground $background $foreground $background $backgro
 for_window [class="^Font-manager$"] floating enable
 for_window [class="^Pavucontrol$"] floating enable
 for_window [class="^System-config-printer.py$"] floating enable
+for_window [class="^Arandr$"] floating enable
 for_window [class="^Arandr$"] floating enable
 for_window [window_role="pop-up"] floating enable
 
