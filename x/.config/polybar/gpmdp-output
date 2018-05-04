@@ -1,9 +1,11 @@
 #! /bin/bash
 
-PLAYING=$(cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json")
-if [ -n "$PLAYING" ]; then
-  ARTIST=$(jq .song.artist <<< $PLAYING)
-  SONG=$(jq .song.title <<< $PLAYING)
+OUTPUT=$(cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json")
+PLAYING=$(jq .playing <<< $OUTPUT)
+  
+if [ "$PLAYING" == "true" ]; then
+  ARTIST=$(jq .song.artist <<< $OUTPUT)
+  SONG=$(jq .song.title <<< $OUTPUT)
 
   echo $ARTIST - $SONG
 fi
