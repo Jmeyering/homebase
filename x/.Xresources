@@ -18,6 +18,7 @@ Xft.dpi: 150
 *.color13:          #668ca1
 *.color14:          #759496
 *.color15:          #b0c4bb
+
 rofi.color-enabled: true
 rofi.color-window:  #2f2f38, #688486, #688486
 rofi.color-normal:  #2f2f38, #688486, #2f2f38, #2f2f38, #cfd2cf

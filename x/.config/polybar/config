@@ -12,12 +12,13 @@
   padding-right = 5
   module-margin = 4
 
-  font-0 = NotoSans-Regular:size=8;-1
-  font-1 = MaterialIcons:size=10;0
-  font-2 = Inconsolata:size=8;-2
-  font-3 = FontAwesome:size=10;0
+  font-0 = NotoSans-Regular:size=10;-1
+  font-1 = MaterialIcons:size=12;0
+  font-2 = Inconsolata:size=10;-2
+  font-3 = FontAwesome:size=12;0
 
   modules-left = powermenu
+  modules-center = music
   modules-right = volume wireless-network battery backlight date
 
 [bar/bottom]
@@ -37,9 +38,9 @@
   module-margin-left = 0
   module-margin-right = 6
 
-  font-0 = NotoSans-Regular:size=10;0
-  font-1 = FontAwesome:size=12;-2
-  font-2 = Font Awesome 5 Brands:size=12:antialias=false;0
+  font-0 = NotoSans-Regular:size=12;0
+  font-1 = FontAwesome:size=14;-2
+  font-2 = Font Awesome 5 Brands:size=14:antialias=false;0
 
   modules-left = i3
   modules-right = cpu memory vpn
@@ -203,11 +204,10 @@
   animation-packetloss-1 = 
   animation-packetloss-1-foreground = ${bar/top.foreground}
   animation-packetloss-framerate = 500
-  click-left = notify-send hi
 
 [module/volume]
-  type = internal/volume
-  master-soundcard=hw:0
+  type = internal/alsa
+  master-soundcard=default
 
   click-right = pavucontrol &
   format-volume = <ramp-volume> <label-volume>
@@ -264,3 +264,12 @@
   format-underline = #268bd2
   format-prefix = " "
   format-prefix-foreground = #5b
+
+[module/music]
+  type = custom/script
+  exec = ~/.config/polybar/gpmdp-output
+  interval = 5
+  format-prefix = " "
+  format-prefix-foreground = #5b
+  click-left = playerctl play-pause
+  click-right = playerctl next

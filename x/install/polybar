@@ -1,8 +1,19 @@
 #! /bin/bash
 
-echo "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" | sudo tee /etc/apt/sources.list.d/polybar.list
-sudo apt-get update
+sudo apt install \
+  cmake \
+  mpd \
+  libpulse-dev \
+  python-xcbgen \
+  xcb-proto \
+  libxcb-* \
+  libiw-dev \
+  libmpdclient-dev \
+  libcurl4-gnutls-dev \
+  libasound2-dev \
+  -y
 
-wget -q -O- http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
-
-sudo apt-get install polybar
+sudo apt install cmake
+git clone --recursive https://github.com/jaagr/polybar
+cd polybar && ./build.sh
+cd ../ && rm -rf polybar

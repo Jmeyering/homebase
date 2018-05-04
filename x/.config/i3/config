@@ -19,7 +19,7 @@ bindsym $mod+Return exec i3-sensible-terminal -cd $(cat /tmp/whereami)
 bindsym $mod+Shift+q kill
 
 bindsym $mod+x exec --no-startup-id ~/homebase/x/toggleDisplays
-bindsym $mod+d exec --no-startup-id "rofi -combi-modi window,drun -show combi -modi combi"
+bindsym $mod+d exec --no-startup-id "rofi -location 2 -yoffset 45 -width 100 -combi-modi window,drun -show combi -modi combi"
 bindsym $mod+Shift+s exec --no-startup-id shutter -s -e --disable_systray
 
 # change focus
@@ -30,6 +30,8 @@ bindsym $mod+l focus right
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Control+Tab workspace back_and_forth
+
 
 # move focused window
 bindsym $mod+Shift+h move left
