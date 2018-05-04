@@ -1,4 +1,9 @@
+#! /bin/bash
+
 PLAYING=$(cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json")
 if [ -n "$PLAYING" ]; then
-  echo $PLAYING | jq -r '.song.artist, .song.title' | sed ':a;N;$!ba;s/\n/ \- /'
+  ARTIST=$(jq .song.artist <<< $PLAYING)
+  SONG=$(jq .song.title <<< $PLAYING)
+
+  echo $ARTIST - $SONG
 fi
