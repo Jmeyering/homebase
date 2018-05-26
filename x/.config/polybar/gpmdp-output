@@ -2,10 +2,10 @@
 
 OUTPUT=$(cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json")
 PLAYING=$(jq .playing <<< $OUTPUT)
-  
+
 if [ "$PLAYING" == "true" ]; then
   ARTIST=$(jq .song.artist <<< $OUTPUT)
   SONG=$(jq .song.title <<< $OUTPUT)
 
-  echo $ARTIST - $SONG
+  echo ${ARTIST:1:-1} - ${SONG:1:-1}
 fi
