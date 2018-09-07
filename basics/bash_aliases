@@ -1,1 +1,2 @@
 alias vim="nvim"
+alias npm="~/.node_modules/bin/npm"

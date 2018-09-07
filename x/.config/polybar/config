@@ -19,7 +19,7 @@
 
   modules-left = powermenu
   modules-center = music
-  modules-right = volume wireless-network battery backlight date
+  modules-right = volume wired-network wireless-network battery backlight date
 
 [bar/bottom]
   monitor = ${env:MONITOR:}
@@ -181,6 +181,16 @@
   bar-used-empty = ─
   bar-used-empty-font = 6
   bar-used-empty-foreground = #444444
+
+[module/wired-network]
+  type = internal/network
+  interface = enx1065309e981f
+  interval = 3.0
+
+  format-disconnected = <label-disconnected>
+  format-connected = <label-connected>
+  label-connected = %local_ip%
+  label-disconnected =
 
 [module/wireless-network]
   type = internal/network

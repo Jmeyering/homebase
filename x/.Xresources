@@ -1,4 +1,11 @@
 Xft.dpi: 150
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
 *.background:       #2f2f38
 *.foreground:       #cfd2cf
 *.cursorColor:      #cfd2cf
@@ -44,11 +51,11 @@ URxvt.lineSpace:            0
 
 ! Fonts
 URxvt.allow_bold:           true
-URxvt*font: xft:Inconsolata:pixelsize=20
-URxvt*boldFont: xft:Inconsolata:pixelsize=20
+URxvt*font: xft:InconsolataGo Nerd Font Mono:pixelsize=20:minspace=False, xft:DejaVu Sans:pixelsize=18
+URxvt*boldFont: xft:InconsolataGo Nerd Font Mono:bold:pixelsize=20:minspace=False, xft:DejaVu Sans:pixelsize=18
 
 ! Fix font space
-URxvt*letterSpace: 1
+URxvt*letterSpace: 0
 
 ! Scrollbar
 URxvt.scrollStyle:          rxvt

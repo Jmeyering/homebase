@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if ! hash pip 2>/dev/null; then
+    sudo apt-get install python-pip -y
+fi
+
+sudo pip install powerline-shell
+
