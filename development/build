@@ -7,3 +7,4 @@ chmod +x ./install/*
 ./install/go
 ./install/openvpn
 ./install/dnsmasq
+./install/resolvconf
