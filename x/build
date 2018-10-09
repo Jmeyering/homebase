@@ -13,7 +13,8 @@ install/nitrogen &&
 install/rxvt &&
 install/arc-theme &&
 install/playerctl &&
-install/i3
+install/i3 &&
+install/acpi-events
 
 rm ~/.Xresources
 rm -rf ~/.config/dunst

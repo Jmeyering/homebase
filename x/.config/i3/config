@@ -143,6 +143,7 @@ focus_follows_mouse no
 ############################
 ## Autostart Applications ##
 ############################
+exec --no-startup-id $HOME/docked.sh
 exec --no-startup-id i3-msg "workspace www; exec /usr/bin/google-chrome"
 exec --no-startup-id i3-msg "workspace code; exec /usr/bin/urxvt"
 exec --no-startup-id i3-msg "workspace chat; exec /snap/bin/slack"

@@ -17,6 +17,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tobyS/pdv'
 Plug 'tobys/vmustache'
+Plug 'posva/vim-vue'
 
 "text manipulation
 Plug 'tpope/vim-surround'
@@ -103,7 +104,13 @@ augroup ft_go
     au Filetype go setlocal listchars+=tab:\ \ 
 augroup END
 
-augroup FiletypeGroup
+augroup ft_php
+    au!
+
+    au Filetype php setlocal tabstop=4 shiftwidth=4 softtabstop=4
+augroup END
+
+augroup ft_jsx
     autocmd!
     au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 augroup END
@@ -270,5 +277,8 @@ let &colorcolumn=join(range(81,2000),",")
 let g:user_emmet_settings = {
 \  'javascript.jsx' : {
 \      'extends': 'jsx',
+\  },
+\  'javascript.vue' : {
+\      'extends': 'vue',
 \  },
 \}

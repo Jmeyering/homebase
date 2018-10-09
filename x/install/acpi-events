@@ -1,0 +1,4 @@
+#! /bin/bash
+
+sudo cp $HOME/homebase/x/acpi-events/* /etc/acpi/events/ &&
+sudo systemctl restart acpid.service
