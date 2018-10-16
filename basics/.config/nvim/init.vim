@@ -128,6 +128,7 @@ let g:ale_linter_aliases = {
 
 let g:ale_fixers = {
 \    'javascript': ['prettier'],
+\    'vue': ['prettier'],
 \    'php': ['phpcbf']
 \}
 let g:ale_javascript_prettier_options = '--trailing-comma all --write'
@@ -277,8 +278,5 @@ let &colorcolumn=join(range(81,2000),",")
 let g:user_emmet_settings = {
 \  'javascript.jsx' : {
 \      'extends': 'jsx',
-\  },
-\  'javascript.vue' : {
-\      'extends': 'vue',
 \  },
 \}

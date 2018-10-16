@@ -2,6 +2,10 @@ snippet isc "import styled components"
 import styled from "styled-components";
 endsnippet
 
+snippet iscv "import vue styled components"
+import styled from "vue-styled-components";
+endsnippet
+
 snippet req "node require"
 const $1 = require("$1");
 endsnippet
@@ -43,9 +47,7 @@ import $1 from "./$1";
 endsnippet
 
 snippet imex "import and export from current directory"
-import $1 from "./$1";
-
-export default $1;
+export { default } from "./$1";
 endsnippet
 
 snippet theme "access styled component theme object"
@@ -171,4 +173,31 @@ snippet reduxaction "redux action stub"
 export const $1 = () => ({
   type: "$2",
 });
+endsnippet
+
+snippet storyv "vue storybook story file"
+import { storiesOf } from '@storybook/vue';
+import { withKnobs } from '@storybook/addon-knobs/vue';
+
+import $1 from './$1';
+
+storiesOf("$1", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => ({
+		render() {
+			return (
+				<$1 />
+			);
+		},
+  }));
+endsnippet
+
+snippet vuefc "vue functional component"
+export default {
+  functional: true,
+  render(h, c) {
+    return (
+    );
+  },
+}
 endsnippet
