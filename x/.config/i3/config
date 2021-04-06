@@ -72,6 +72,8 @@ bindsym $mod+m move workspace to output right
 bindsym $mod+minus scratchpad show
 
 bindsym $mod+Control+l exec --no-startup-id ~/.config/i3/blurlock
+bindsym $mod+Shift+u exec --no-startup-id ~/undock.sh
+bindsym $mod+Shift+d exec --no-startup-id ~/docked.sh
 
 # Standard commands work also
 bindsym $mod+1 workspace 1
@@ -215,6 +217,7 @@ for_window [class="^System-config-printer.py$"] floating enable
 for_window [class="^Arandr$"] floating enable
 for_window [class="^Arandr$"] floating enable
 for_window [window_role="pop-up"] floating enable
+for_window [urgent=latest] focus
 
 #############################
 ### settings for i3-gaps: ###

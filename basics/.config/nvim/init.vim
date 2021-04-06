@@ -17,6 +17,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tobyS/pdv'
 Plug 'tobys/vmustache'
+Plug 'Ivo-Donchev/vim-react-goto-definition'
 Plug 'posva/vim-vue'
 
 "text manipulation
@@ -32,6 +33,7 @@ Plug 'wincent/command-t', {
 Plug 'kshenoy/vim-signature'
 
 "syntax highlight and colors
+Plug 'hashivim/vim-terraform'
 Plug 'styled-components/vim-styled-components'
 Plug 'chrisbra/Colorizer'
 Plug 'hail2u/vim-css3-syntax'
@@ -46,6 +48,8 @@ Plug 'othree/html5.vim'
 Plug 'StanAngeloff/php.vim'
 Plug 'fatih/vim-go'
 Plug 'sebdah/vim-delve'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 
 "git integration

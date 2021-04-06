@@ -3,11 +3,24 @@ export EDITOR=vim
 
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/go
+export GO111MODULE=auto
 export PATH=$PATH:/usr/local/go_appengine
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$HOME/.node_modules/bin
 export PATH=$PATH:$(python -m site --user-base)/bin
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
@@ -21,3 +34,11 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
 fi
 
 export GPG_TTY=$(tty)
+
+gittag() {
+  tag=$1
+  git tag -d $tag
+  git push origin :refs/tags/$tag
+  git tag $tag
+  git push && git push origin refs/tags/$tag
+}

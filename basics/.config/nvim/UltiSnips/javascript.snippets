@@ -42,6 +42,10 @@ snippet ipt "import PropTypes"
 import PropTypes from "prop-types";
 endsnippet
 
+snippet imb "import from back one directory"
+import $1 from "../$1";
+endsnippet
+
 snippet imc "import from current directory"
 import $1 from "./$1";
 endsnippet
@@ -52,6 +56,14 @@ endsnippet
 
 snippet theme "access styled component theme object"
 ${({ theme }) => theme.$1};
+endsnippet
+
+snippet props "access styled component props object"
+${({ props }) => props.$1};
+endsnippet
+
+snippet brand "import brand components"
+import { $1 } from "@sussex/brand";
 endsnippet
 
 snippet nsc "New React styled component"
@@ -67,7 +79,7 @@ $1.propTypes = {
 export default $1;
 endsnippet
 
-snippet stateful "New React stateless functional component"
+snippet stateful "New React stateful functional component"
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
@@ -92,9 +104,15 @@ export default $1;
 endsnippet
 
 snippet sfc "React stateless funcitonal component"
-const $1 = () => (
-	$2
-);
+import React from "react";
+
+const $1 = () => {
+  return (
+    $2
+  );
+};
+
+export default $1;
 endsnippet
 
 snippet sfcex "React stateless funcitonal component"
@@ -169,6 +187,20 @@ describe("$1", () => {
 });
 endsnippet
 
+snippet jestv "create vue test for component"
+import { shallow } from "@vue/test-utils";
+
+import $1 from "../";
+
+describe("$1", () => {
+  test("renders correctly", () => {
+    const wrapper = shallow($1, {
+      propData: {},
+    });
+  });
+});
+endsnippet
+
 snippet reduxaction "redux action stub"
 export const $1 = () => ({
   type: "$2",
@@ -177,14 +209,14 @@ endsnippet
 
 snippet storyv "vue storybook story file"
 import { storiesOf } from '@storybook/vue';
-import { withKnobs } from '@storybook/addon-knobs/vue';
+import { withKnobs } from '@storybook/addon-knobs';
 
-import $1 from './$1';
+import $1 from './';
 
 storiesOf("$1", module)
   .addDecorator(withKnobs)
   .add("Default", () => ({
-		render() {
+		render(h) {
 			return (
 				<$1 />
 			);
@@ -192,6 +224,15 @@ storiesOf("$1", module)
   }));
 endsnippet
 
+snippet vuec "vue component"
+export default {
+	name: "$1",
+  render(h) {
+    return (
+    );
+  },
+}
+endsnippet
 snippet vuefc "vue functional component"
 export default {
   functional: true,
@@ -200,4 +241,8 @@ export default {
     );
   },
 }
+endsnippet
+
+snippet vuexg "vuex getter"
+$1: state => state.$1,
 endsnippet
