@@ -66,7 +66,7 @@ bindsym $mod+c exec "i3-msg 'floating toggle; sticky toggle; resize shrink width
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
-bindsym $mod+m move workspace to output right
+bindsym $mod+m move workspace to output left
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show

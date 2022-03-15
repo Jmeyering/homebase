@@ -50,6 +50,7 @@ Plug 'fatih/vim-go'
 Plug 'sebdah/vim-delve'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'sheerun/vim-polyglot'
 
 
 "git integration
@@ -144,17 +145,15 @@ let g:ale_fix_on_save = 1
 " -------------------------------------------------
 "  autocompletion
 " -------------------------------------------------
-let g:deoplete#sources#go#gocode_binary = '~/go/bin/gocode'
-let g:deoplete#sources#go#use_cache = '~/.cache/deoplete/go/$GOOS_$GOARCH'
-let g:deoplete#enable_at_startup = 1
-autocmd CompleteDone * pclose!
-
 
 autocmd FileType js UltiSnipsAddFiletypes javascript-react
 let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips', 'UltiSnips']
 
 let g:pdv_template_dir = $HOME ."/.config/nvim/UltiSnips/pdv"
 nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
+
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " -------------------------------------------------
 "  git integration
