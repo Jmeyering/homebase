@@ -1,3 +1,2 @@
 alias vim="nvim"
 alias vpn="~/work/vpn/start"
-alias npm="~/.node_modules/bin/npm"

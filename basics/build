@@ -13,6 +13,8 @@ dotfiles="bashrc gitconfig bash_aliases bash_profile"    # list of filesto symli
 
 #Dependencies
 
+sudo su
+
 if ! hash pip3 2>/dev/null; then
     sudo apt-get install python3-pip -y
 fi
@@ -20,9 +22,12 @@ fi
 if ! hash nvim 2>/dev/null; then
     echo "Installing NeoVim"
     sudo add-apt-repository -yu ppa:neovim-ppa/stable >/dev/null &&
-    sudo apt-get update >/dev/null &&
-    sudo apt-get install ruby-full -y &&
-    sudo apt-get install neovim -y &&
+
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+    sudo chmod u+x nvim.appimage
+    sudo mv nvim.appimage /usr/local/bin
+    sudo apt install ruby-full -y &&
+    sudo apt install neovim -y &&
 
     #Install python and ruby bindings for neovim
     pip3 install neovim &&

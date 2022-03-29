@@ -1,8 +1,5 @@
 #! /bin/bash
 
-sudo add-apt-repository xenial ppa:aguignard/ppa -y
-sudo apt-get update
-
 #####################
 ## Install i3 deps ##
 #####################
@@ -29,17 +26,6 @@ sudo apt install \
   lxappearance \
   -y
 
-
-##############################################
-## Install light to manage screen bightness ##
-##############################################
-git clone https://github.com/haikarainen/light.git
-cd light
-sudo make
-sudo make install
-cd ../
-rm -rf light
-
 #######################
 ## Build i3 from src ##
 #######################
@@ -47,31 +33,19 @@ git clone https://www.github.com/Airblader/i3 i3-gaps
 
 cd i3-gaps
 
-autoreconf --force --install
-rm -rf build/
-mkdir -p build && cd build/
+sudo add-apt-repository ppa:regolith-linux/release
+sudo apt update
+sudo apt install i3-gaps
 
-../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
-make
-sudo make install
-
-cd ../../
-rm -rf i3-gaps
+#rm -rf i3-gaps
 
 
 ##############################################
 ## Install Lightweight support applications ##
 ##############################################
-sudo add-apt-repository ppa:font-manager/staging
-sudo apt-get update
-
 sudo apt install \
-  i3lock \
+  xrdp \
   thunar \
-  pavucontrol \
-  xautolock \
-  shutter \
   compton \
-  font-manager \
   arandr \
   -y

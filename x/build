@@ -12,9 +12,7 @@ install/rofi &&
 install/nitrogen &&
 install/rxvt &&
 install/arc-theme &&
-install/playerctl &&
-install/i3 &&
-install/acpi-events
+install/i3
 
 rm ~/.Xresources
 rm -rf ~/.config/dunst
@@ -24,7 +22,6 @@ rm -rf ~/.config/nitrogen
 rm ~/.config/compton.conf
 sudo rm /etc/dnsmasq.d/test
 
-ln -s $dir/bluetooth/audio.conf /etc/bluetooth/
 ln -s $dir/.Xresources ~/.Xresources
 ln -s $dir/.config/compton.conf ~/.config/
 sudo ln -s $dir/dnsmasq-test.conf /etc/dnsmasq.d/test
