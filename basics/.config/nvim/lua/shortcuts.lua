@@ -1,0 +1,1 @@
+nmap('<c-t>', ':tabnew')

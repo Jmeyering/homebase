@@ -1,0 +1,16 @@
+colorColumnOffset = 80
+
+-- calculate the columns to be colored
+cc = {}
+for i=1,2000 do
+  cc[i] = i + colorColumnOffset
+end
+
+vim.opt.colorcolumn = cc
+vim.opt.termguicolors = true
+
+vim.o.bg = "dark"
+vim.g.solarized_italics = 0
+vim.cmd('colorscheme solarized')
+
+vim.g.gitgutter_override_sign_column_highlight = 0

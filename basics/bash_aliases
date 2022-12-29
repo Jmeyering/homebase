@@ -1,2 +1,8 @@
 alias vim="nvim"
 alias vpn="~/work/vpn/start"
+
+alias start-service="$HOME/code/am-start-service/start-service.sh"
+alias stop-service="$HOME/code/am-start-service/stop-service.sh"
+alias pretty-output="$HOME/code/am-start-service/pretty-output.sh"
+alias formatst="$HOME/code/am-start-service/formatst.sh"
+
