@@ -74,25 +74,35 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  Colorizer = {
+  LuaSnip = {
     loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/Colorizer",
-    url = "https://github.com/chrisbra/Colorizer"
+    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  NeoSolarized = {
+  ["cmp-buffer"] = {
     loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/NeoSolarized",
-    url = "https://github.com/iCyMind/NeoSolarized"
+    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
   },
-  ["deoplete-go"] = {
+  ["cmp-cmdline"] = {
     loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/deoplete-go",
-    url = "https://github.com/zchee/deoplete-go"
+    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
   },
-  ["deoplete.nvim"] = {
+  ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/deoplete.nvim",
-    url = "https://github.com/Shougo/deoplete.nvim"
+    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   ["editorconfig-vim"] = {
     loaded = true,
@@ -109,6 +119,11 @@ _G.packer_plugins = {
     path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/fd",
     url = "https://github.com/sharkdp/fd"
   },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
   ["go.nvim"] = {
     loaded = true,
     path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/go.nvim",
@@ -119,10 +134,10 @@ _G.packer_plugins = {
     path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/guihua.lua",
     url = "https://github.com/ray-x/guihua.lua"
   },
-  matchtag = {
+  ["nvim-cmp"] = {
     loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/matchtag",
-    url = "https://github.com/gregsexton/matchtag"
+    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-dap"] = {
     loaded = true,
@@ -149,7 +164,14 @@ _G.packer_plugins = {
     path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/nvim-solarized-lua",
     url = "https://github.com/ishan9299/nvim-solarized-lua"
   },
+  ["nvim-surround"] = {
+    config = { "\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18nvim-surround\frequire\0" },
+    loaded = true,
+    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/nvim-surround",
+    url = "https://github.com/kylechui/nvim-surround"
+  },
   ["nvim-treesitter"] = {
+    config = { "\27LJ\2\nÄ\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14highlight\1\0\1\venable\2\21ensure_installed\1\0\2\17auto_install\2\17sync_install\1\1\a\0\0\ago\ngomod\tyaml\tjson\15javascript\blua\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -164,11 +186,6 @@ _G.packer_plugins = {
     path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  tabular = {
-    loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/tabular",
-    url = "https://github.com/godlygeek/tabular"
-  },
   tagbar = {
     loaded = true,
     path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/tagbar",
@@ -178,21 +195,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ultisnips = {
-    loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/ultisnips",
-    url = "https://github.com/SirVer/ultisnips"
-  },
-  ["vim-css3-syntax"] = {
-    loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/vim-css3-syntax",
-    url = "https://github.com/hail2u/vim-css3-syntax"
-  },
-  ["vim-delve"] = {
-    loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/vim-delve",
-    url = "https://github.com/sebdah/vim-delve"
   },
   ["vim-fugitive"] = {
     loaded = true,
@@ -209,30 +211,10 @@ _G.packer_plugins = {
     path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/vim-gutentags",
     url = "https://github.com/ludovicchabant/vim-gutentags"
   },
-  ["vim-javascript"] = {
-    loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/vim-javascript",
-    url = "https://github.com/pangloss/vim-javascript"
-  },
   ["vim-jsontogo"] = {
     loaded = true,
     path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/vim-jsontogo",
     url = "https://github.com/meain/vim-jsontogo"
-  },
-  ["vim-jsx-pretty"] = {
-    loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/vim-jsx-pretty",
-    url = "https://github.com/maxmellon/vim-jsx-pretty"
-  },
-  ["vim-polyglot"] = {
-    loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/vim-polyglot",
-    url = "https://github.com/sheerun/vim-polyglot"
-  },
-  ["vim-react-goto-definition"] = {
-    loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/vim-react-goto-definition",
-    url = "https://github.com/Ivo-Donchev/vim-react-goto-definition"
   },
   ["vim-sensible"] = {
     loaded = true,
@@ -244,26 +226,6 @@ _G.packer_plugins = {
     path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/vim-signature",
     url = "https://github.com/kshenoy/vim-signature"
   },
-  ["vim-snippets"] = {
-    loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/vim-snippets",
-    url = "https://github.com/honza/vim-snippets"
-  },
-  ["vim-styled-components"] = {
-    loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/vim-styled-components",
-    url = "https://github.com/styled-components/vim-styled-components"
-  },
-  ["vim-surround"] = {
-    loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/vim-surround",
-    url = "https://github.com/tpope/vim-surround"
-  },
-  ["vim-terraform"] = {
-    loaded = true,
-    path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/vim-terraform",
-    url = "https://github.com/hashivim/vim-terraform"
-  },
   ["vim-vinegar"] = {
     loaded = true,
     path = "/Users/JMeyering/.local/share/nvim/site/pack/packer/start/vim-vinegar",
@@ -272,6 +234,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-surround
+time([[Config for nvim-surround]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
+time([[Config for nvim-surround]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\nÄ\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14highlight\1\0\1\venable\2\21ensure_installed\1\0\2\17auto_install\2\17sync_install\1\1\a\0\0\ago\ngomod\tyaml\tjson\15javascript\blua\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

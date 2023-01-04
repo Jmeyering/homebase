@@ -1,1 +1,1 @@
-nmap('<c-t>', ':tabnew')
+nmap('<c-t>', ':tabnew<cr>')

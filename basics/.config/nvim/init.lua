@@ -2,8 +2,11 @@ require("plugins")
 require("functions")
 require("settings")
 require("shortcuts")
-require("formatting")
 require("fuzzy-finder")
 require("theme")
-require("go-bindings")
 require("lsp-config")
+require("completion")
+
+-- FileType specific configuration
+require("go-bindings")
+require("lua-bindings")
