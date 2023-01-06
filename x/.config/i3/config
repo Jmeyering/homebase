@@ -131,7 +131,7 @@ mode "resize" {
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppr
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -146,10 +146,11 @@ focus_follows_mouse no
 ## Autostart Applications ##
 ############################
 exec --no-startup-id $HOME/docked.sh
+exec --no-startup-id xrdb -merge $HOME/.Xresources
 exec --no-startup-id i3-msg "workspace www; exec /usr/bin/google-chrome"
 exec --no-startup-id i3-msg "workspace code; exec /usr/bin/urxvt"
 exec --no-startup-id i3-msg "workspace chat; exec /snap/bin/slack"
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+#exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id dunst
 exec --no-startup-id xautolock -time 15 -locker "$HOME/.config/i3/blurlock"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -157,21 +158,6 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 ################
 ## Media Keys ##
 ################
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
-
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
 ############
 ## Colors ##
 ############

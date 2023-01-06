@@ -1,4 +1,5 @@
-Xft.dpi: 150
+!Xft.dpi:150 
+Xft.dpi:100
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
@@ -51,8 +52,8 @@ URxvt.lineSpace:            0
 
 ! Fonts
 URxvt.allow_bold:           true
-URxvt*font: xft:InconsolataGo Nerd Font Mono:pixelsize=20:minspace=False, xft:DejaVu Sans:pixelsize=18
-URxvt*boldFont: xft:InconsolataGo Nerd Font Mono:bold:pixelsize=20:minspace=False, xft:DejaVu Sans:pixelsize=18
+URxvt*font: xft:InconsolataGo Nerd Font Mono:pixelsize=25:minspace=False, xft:DejaVu Sans:pixelsize=18
+URxvt*boldFont: xft:InconsolataGo Nerd Font Mono:bold:pixelsize=25:minspace=False, xft:DejaVu Sans:pixelsize=18
 
 ! Fix font space
 URxvt*letterSpace: 0

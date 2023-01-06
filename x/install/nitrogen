@@ -1,5 +1,5 @@
 #! /bin/bash
 
 if ! hash nitrogen 2>/dev/null; then
-  sudo apt-get install nitrogen -y
+  sudo apt install nitrogen -y
 fi

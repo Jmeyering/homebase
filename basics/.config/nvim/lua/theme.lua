@@ -7,7 +7,7 @@ for i=1,2000 do
 end
 
 vim.opt.colorcolumn = cc
-vim.opt.termguicolors = true
+-- vim.opt.termguicolors = true
 
 vim.o.bg = "dark"
 vim.g.solarized_italics = 0

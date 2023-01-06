@@ -11,6 +11,9 @@ dir=$(pwd)
 dotfiles="bashrc bash_aliases bash_profile"    # list of filesto symlink in homedir
 
 
+# Install basic applications
+./install/powerline-shell
+./install/nvim
 
 #Create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $dotfiles; do
@@ -19,24 +22,6 @@ for file in $dotfiles; do
     ln -s $dir/$file ~/.$file 2>/dev/null
 done
 
-rm -rf ~/.vim 2>/dev/null
-ln -s $dir/vim ~/.vim
-
-# Add neovim config
-rm -rf ~/.config/nvim 2>/dev/null
-ln -s $dir/.config/nvim ~/.config/nvim
-
-#Install VimPlug
-if ! [ -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
-    if ! hash curl 2>/dev/null; then
-      sudo apt-get install curl -y
-    fi
-    echo "Installing VimPlug"
-    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
-
-nvim +PlugInstall +qall
 
 source ~/.bashrc
 

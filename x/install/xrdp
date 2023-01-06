@@ -1,0 +1,14 @@
+#! /bin/bash
+
+dir=$(pwd)
+
+##########################
+## Install RDP software ##
+##########################
+sudo apt install xrdp
+
+sudo rm /etc/xrdp/startwm.sh
+sudo ln -s $dir/startwm.sh /etc/xrdp/startwm.sh
+
+sudo adduser xrdp ssl-cert
+sudo systemctl restart xrdp

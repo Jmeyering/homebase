@@ -2,9 +2,10 @@
 
 chmod +x ./install/*
 
-./install/node8
-./install/docker
+./install/node
 ./install/go
 ./install/openvpn
-./install/dnsmasq
-./install/resolvconf
+
+#./install/resolvconf
+#./install/dnsmasq
+#./install/docker

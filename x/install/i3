@@ -1,50 +1,14 @@
 #! /bin/bash
 
-#####################
-## Install i3 deps ##
-#####################
-sudo apt install \
-  acpi \
-  autoconf \
-  help2man \
-  libxcb1-dev \
-  libxcb-keysyms1-dev \
-  libpango1.0-dev \
-  libxcb-util0-dev \
-  libxcb-icccm4-dev \
-  libyajl-dev \
-  libstartup-notification0-dev \
-  libxcb-randr0-dev \
-  libev-dev \
-  libxcb-cursor-dev \
-  libxcb-xinerama0-dev \
-  libxcb-xkb-dev \
-  libxkbcommon-dev \
-  libxkbcommon-x11-dev \
-  libxcb-xrm-dev \
-  libxcb-xrm-dev \
-  lxappearance \
-  -y
-
-#######################
-## Build i3 from src ##
-#######################
-git clone https://www.github.com/Airblader/i3 i3-gaps
-
-cd i3-gaps
-
 sudo add-apt-repository ppa:regolith-linux/release
 sudo apt update
 sudo apt install i3-gaps
-
-#rm -rf i3-gaps
 
 
 ##############################################
 ## Install Lightweight support applications ##
 ##############################################
 sudo apt install \
-  xrdp \
   thunar \
   compton \
   arandr \

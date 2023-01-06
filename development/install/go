@@ -15,3 +15,5 @@ fi
 if ! hash dep 2>/dev/null; then
   curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 fi
+
+source ~/.bash_profile
