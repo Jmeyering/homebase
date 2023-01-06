@@ -38,6 +38,13 @@ return require("packer").startup(function(use)
     },
   }
 
+  use {
+    'ThePrimeagen/harpoon',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+  }
+
 
   -- syntax highlighting
   use "ishan9299/nvim-solarized-lua"
