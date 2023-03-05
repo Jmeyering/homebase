@@ -10,3 +10,4 @@ require("completion")
 -- FileType specific configuration
 require("go-bindings")
 require("lua-bindings")
+require("tf-bindings")

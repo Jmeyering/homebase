@@ -35,7 +35,6 @@ TMUX_STATUS_DEFINITION() {
 
 ### CONFIGURATION ENDS HERE.
 ### Now let me do the dirty work.
-
 # Taken from http://aaroncrane.co.uk/2009/03/git_branch_prompt/
 find_git_repo() {
     local dir=.

@@ -1,4 +1,5 @@
 basics/vim/plugged
+basics/.config/nvim/plugin/packer_compiled.lua
 en.utf-8.add.spl
 .netrwhist
 *.sw*

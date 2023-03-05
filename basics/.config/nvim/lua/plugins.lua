@@ -29,6 +29,14 @@ return require("packer").startup(function(use)
     run = { ":GoInstallBinaries" },
   }
 
+  use {
+    'MunifTanjim/prettier.nvim',
+    requires = {
+      "neovim/nvim-lspconfig",
+      "jose-elias-alvarez/null-ls.nvim"
+    },
+  }
+
   -- helpers
   use {
     "nvim-telescope/telescope.nvim",
@@ -82,7 +90,6 @@ return require("packer").startup(function(use)
 
   use "meain/vim-jsontogo"
   use "preservim/tagbar"
-  use "ludovicchabant/vim-gutentags"
   use "tpope/vim-fugitive"
   use "airblade/vim-gitgutter"
 end)

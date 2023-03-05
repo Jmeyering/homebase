@@ -39,7 +39,6 @@ lsp_defaults.capabilities = vim.tbl_deep_extend(
   require("cmp_nvim_lsp").default_capabilities()
 )
 
-
 lspconfig.gopls.setup {
   cmd = { "gopls" },
   settings = {
@@ -56,7 +55,10 @@ lspconfig.gopls.setup {
     usePlaceholders = true,
   }
 }
-require "lspconfig".sumneko_lua.setup {
+
+lspconfig.terraformls.setup {}
+
+lspconfig.sumneko_lua.setup {
   settings = {
     Lua = {
       diagnostics = {
